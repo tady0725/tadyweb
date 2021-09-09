@@ -6,7 +6,7 @@
   <link href="https://tady0725.github.io/tadyweb/atom.xml" rel="self"/>
   
   <link href="https://tady0725.github.io/tadyweb/"/>
-  <updated>2021-09-09T19:40:38.349Z</updated>
+  <updated>2021-09-09T19:47:52.811Z</updated>
   <id>https://tady0725.github.io/tadyweb/</id>
   
   <author>
@@ -21,19 +21,19 @@
     <link href="https://tady0725.github.io/tadyweb/2021/09/10/test/"/>
     <id>https://tady0725.github.io/tadyweb/2021/09/10/test/</id>
     <published>2021-09-09T17:37:03.000Z</published>
-    <updated>2021-09-09T19:40:38.349Z</updated>
+    <updated>2021-09-09T19:47:52.811Z</updated>
     
-    <content type="html"><![CDATA[<p>你好嗎?我打算</p>]]></content>
+    <content type="html"><![CDATA[<p>你好嗎?我打算</p><span id="more"></span><p>說你好</p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;你好嗎?我打算&lt;/p&gt;
-</summary>
-      
+    <summary type="html">&lt;p&gt;你好嗎?我打算&lt;/p&gt;</summary>
     
     
     
+    <category term="Hexo" scheme="https://tady0725.github.io/tadyweb/categories/Hexo/"/>
+    
+    
+    <category term="tset" scheme="https://tady0725.github.io/tadyweb/tags/tset/"/>
     
   </entry>
   
