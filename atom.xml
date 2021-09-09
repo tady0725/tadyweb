@@ -6,7 +6,7 @@
   <link href="https://tady0725.github.io/tadyweb/atom.xml" rel="self"/>
   
   <link href="https://tady0725.github.io/tadyweb/"/>
-  <updated>2021-09-09T16:57:28.059Z</updated>
+  <updated>2021-09-09T18:09:00.414Z</updated>
   <id>https://tady0725.github.io/tadyweb/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://tady0725.github.io/tadyweb/2021/09/10/test/"/>
+    <id>https://tady0725.github.io/tadyweb/2021/09/10/test/</id>
+    <published>2021-09-09T17:37:03.000Z</published>
+    <updated>2021-09-09T18:09:00.414Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
