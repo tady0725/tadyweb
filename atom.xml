@@ -6,7 +6,7 @@
   <link href="https://tady0725.github.io/tadyweb/atom.xml" rel="self"/>
   
   <link href="https://tady0725.github.io/tadyweb/"/>
-  <updated>2021-09-09T19:47:52.811Z</updated>
+  <updated>2021-09-12T19:36:41.761Z</updated>
   <id>https://tady0725.github.io/tadyweb/</id>
   
   <author>
@@ -17,23 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
+    <title>Python os模組 -資料處理</title>
+    <link href="https://tady0725.github.io/tadyweb/2021/09/13/pyos/"/>
+    <id>https://tady0725.github.io/tadyweb/2021/09/13/pyos/</id>
+    <published>2021-09-12T19:04:40.000Z</published>
+    <updated>2021-09-12T19:36:41.761Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note [class] [no-icon]">            <p>用於截圖時間資料，需要批量更改檔名並以數字依序遞增。</p>          </div><span id="more"></span><hr><h3 id="簡介-os"><a href="#簡介-os" class="headerlink" title="簡介 os"></a>簡介 os</h3><div class="note [class] [no-icon]">            <p>os.path.abspath(‘.’) 列印絕對路徑<br>os.path.join(a, b) –&gt; a/b 拼接路徑<br>os.path.split(a/b) –&gt; 這樣可以把一個路徑拆分為兩部分，後一部分總是最後級別的目錄或檔名<br>os.path.splitext() –&gt;得到檔案擴充名<br>os.rename() –&gt; 對檔案重新命名<br>os.remove() –&gt; 刪除檔案<br>os.path.dirname() –&gt;獲取檔案或資料夾的路徑<br>os.path.isfile/os.path.isdir() –&gt;確認是檔案或者資料夾<br>os.walk() –&gt;遍歷目錄，return (dirpath, dirnames, filenames).<br>dirpath 是以 string 字串形式返回該目錄下所有的絕對路徑；<br>dirnames 是以列表 list 形式返回每一個絕對路徑下的資料夾名字；<br>filesnames 是以列表 list 形式返回該路徑下所有檔名字。</p>          </div><hr><h3 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h3><div class="note [class] [no-icon]">            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">modi_dataname</span>(<span class="params">dirpath</span>):</span></span><br><span class="line">localtime = time.localtime()</span><br><span class="line">result = time.strftime(<span class="string">&quot;%m%d-%H&quot;</span>, localtime) <span class="comment">#取得時間</span></span><br><span class="line">length = <span class="number">0</span></span><br><span class="line">filesnames = []</span><br><span class="line"><span class="keyword">for</span> dirpath, dirnames, filesnames <span class="keyword">in</span> os.walk(dirpath):</span><br><span class="line">length = <span class="built_in">len</span>(filesnames) <span class="comment"># 獲取資料集的圖片個數 # print(length)</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length):</span><br><span class="line">num = <span class="built_in">str</span>(i).zfill(<span class="number">1</span>)</span><br><span class="line">filename = <span class="string">&quot;擷取-&quot;</span>+result+<span class="string">&quot;00-&quot;</span>+num <span class="comment"># 修改檔名的格式</span></span><br><span class="line">scrfilename = dirpath + <span class="string">&quot;\\&quot;</span> + filesnames[i] <span class="comment"># 修改前的檔名</span></span><br><span class="line">nowfilename = dirpath + <span class="string">&quot;\\&quot;</span> + filename + <span class="string">&quot;.png&quot;</span> <span class="comment"># 修改的檔名 # print(&quot;修改前的檔名&quot;, scrfilename) # print(&quot;修改後的檔名&quot;, nowfilename)</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">os.rename(scrfilename, nowfilename)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;rename file fail\r\n&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;rename file successfullly\r\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> **name** == <span class="string">&#x27;**main**&#x27;</span>:</span><br><span class="line">path = os.path.abspath(<span class="string">&#x27;you path&#x27;</span>)</span><br><span class="line">modi_dataname(path)</span><br></pre></td></tr></table></figure>          </div><hr><h3 id="引用文章"><a href="#引用文章" class="headerlink" title="引用文章"></a>引用文章</h3><div class="note [class] [no-icon]">            <p>參考文件 =&gt; <strong><a href="https://iter01.com/563955.html">連結</a></strong></p>          </div>]]></content>
+    
+    
+    <summary type="html">&lt;div class=&quot;note [class] [no-icon]&quot;&gt;
+            &lt;p&gt;用於截圖時間資料，需要批量更改檔名並以數字依序遞增。&lt;/p&gt;
+          &lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Python" scheme="https://tady0725.github.io/tadyweb/categories/Python/"/>
+    
+    
+    <category term="OS" scheme="https://tady0725.github.io/tadyweb/tags/OS/"/>
+    
+    <category term="Coding" scheme="https://tady0725.github.io/tadyweb/tags/Coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>首篇-創建Hexo Blog</title>
     <link href="https://tady0725.github.io/tadyweb/2021/09/10/test/"/>
     <id>https://tady0725.github.io/tadyweb/2021/09/10/test/</id>
     <published>2021-09-09T17:37:03.000Z</published>
-    <updated>2021-09-09T19:47:52.811Z</updated>
+    <updated>2021-09-12T18:58:25.482Z</updated>
     
-    <content type="html"><![CDATA[<p>你好嗎?我打算</p><span id="more"></span><p>說你好</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="創建-hexo"><a href="#創建-hexo" class="headerlink" title="創建 hexo"></a>創建 hexo</h3><div class="note [class] [no-icon]">            <p>終於建立起自己的部落格，可以記錄自己學習筆記的地方。</p><span id="more"></span><img src="https://memeprod.s3.ap-northeast-1.amazonaws.com/user-wtf/1576146548391.jpg" width="400" height="400"  alt="smile"/>          </div><hr><h3 id="簡介-Hexo"><a href="#簡介-Hexo" class="headerlink" title="簡介 Hexo"></a>簡介 Hexo</h3><div class="note [class] [no-icon]">            <p>Hexo 是一個快速、簡單且強大的網誌框架。Hexo 使用 Markdown（或其他標記語言）解析您的文章，並在幾秒鐘內，透過漂亮的主題產生靜態檔案。</p><p>參考文件 =&gt; <strong><a href="https://hexo.io/zh-tw/docs/">Hexo</a></strong></p>          </div><hr><h3 id="Hexo-主題"><a href="#Hexo-主題" class="headerlink" title="Hexo 主題"></a>Hexo 主題</h3><h4 id="主題選擇參考"><a href="#主題選擇參考" class="headerlink" title="主題選擇參考"></a>主題選擇參考</h4><div class="note [class] [no-icon]">            <p>官方的主題 ：<a href="https://hexo.io/themes/">https://hexo.io/themes/</a><br>Hexo github : <a href="https://github.com/hexojs/hexo/wiki/Sites">https://github.com/hexojs/hexo/wiki/Sites</a><br>網上熱推的主題 <strong>NexT</strong> : <a href="https://theme-next.iissnan.com/">https://theme-next.iissnan.com/</a></p>          </div><h4 id="選擇-Next-緣由"><a href="#選擇-Next-緣由" class="headerlink" title="選擇 Next 緣由"></a>選擇 Next 緣由</h4><div class="note [class] [no-icon]">            <p>尋找自己喜歡的主題版型來使用，<del><strong>NexT</strong>是因為很多人都會使用這一個</del>，成為選擇目標，也因為用戶眾多讓整個 NexT 能使用的功能越來越多也越來越穩定。</p>          </div><hr><h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><div class="note [class] [no-icon]">            <p><strong>Markdown 的目標是實現「易讀易寫」。</strong></p><p>不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 語法受到一些既有 text-to-HTML 格式的影響，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，然而最大靈感來源其實是純文字的電子郵件格式。</p><p>由於撰寫部落格文章，使用 Markdown 語法來新增文章，能快速渲染你的文章，<br>因而有機會認識到<strong>Markdown</strong>語法，持續學習~</p><h4 id="參考學習-amp-引用文件"><a href="#參考學習-amp-引用文件" class="headerlink" title="參考學習&amp;引用文件:"></a>參考學習&amp;引用文件:</h4><blockquote><p>|<a href="https://ed521.github.io/2019/08/hexo-markdown/">瑪利歐的部落格</a> |<br>|<a href="https://markdown.tw/">官方文件</a>|</p></blockquote>          </div>]]></content>
     
     
-    <summary type="html">&lt;p&gt;你好嗎?我打算&lt;/p&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;創建-hexo&quot;&gt;&lt;a href=&quot;#創建-hexo&quot; class=&quot;headerlink&quot; title=&quot;創建 hexo&quot;&gt;&lt;/a&gt;創建 hexo&lt;/h3&gt;&lt;div class=&quot;note [class] [no-icon]&quot;&gt;
+            &lt;p&gt;終於建立起自己的部落格，可以記錄自己學習筆記的地方。&lt;/p&gt;</summary>
     
     
     
     <category term="Hexo" scheme="https://tady0725.github.io/tadyweb/categories/Hexo/"/>
     
     
-    <category term="tset" scheme="https://tady0725.github.io/tadyweb/tags/tset/"/>
+    <category term="Blog" scheme="https://tady0725.github.io/tadyweb/tags/Blog/"/>
+    
+    <category term="Markdown" scheme="https://tady0725.github.io/tadyweb/tags/Markdown/"/>
     
   </entry>
   
