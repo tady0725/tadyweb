@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://upload.cc/i1/2021/08/31/sVywbz.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://upload.cc/i1/2021/08/31/sVywbz.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://upload.cc/i1/2021/08/31/sVywbz.png">
+  <link rel="mask-icon" href="https://upload.cc/i1/2021/08/31/sVywbz.png" color="#222">
+
+<link rel="stylesheet" href="/tadyweb/css/main.css">
+
+
+<link rel="stylesheet" href="/tadyweb/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tady0725.github.io","root":"/tadyweb/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="利用 Selenium，玩小遊戲(測試)。紀錄筆記">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Selenium(二)">
+<meta property="og:url" content="https://tady0725.github.io/tadyweb/2021/09/14/Selenium2/index.html">
+<meta property="og:site_name" content="My blogs">
+<meta property="og:description" content="利用 Selenium，玩小遊戲(測試)。紀錄筆記">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload.cc/i1/2021/09/15/YusxXO.png">
+<meta property="og:image" content="https://upload.cc/i1/2021/09/15/u4DohF.png">
+<meta property="article:published_time" content="2021-09-14T14:55:09.000Z">
+<meta property="article:modified_time" content="2021-09-14T18:19:28.483Z">
+<meta property="article:author" content="Tady lin">
+<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="Selenium">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.cc/i1/2021/09/15/YusxXO.png">
+
+<link rel="canonical" href="https://tady0725.github.io/tadyweb/2021/09/14/Selenium2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Selenium(二) | My blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/tadyweb/atom.xml" title="My blogs" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/tady0725" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/tadyweb/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">My blogs</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Welcome my lab</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/tadyweb/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/tadyweb/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tadyweb/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/tadyweb/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/tadyweb/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tady0725.github.io/tadyweb/2021/09/14/Selenium2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJypDV3ncRb_JolJYVA4rH28fXnfRdsMpeQg&usqp=CAU">
+      <meta itemprop="name" content="Tady lin">
+      <meta itemprop="description" content="The greatest test of courage on earth is to bear defeat without losing heart.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Selenium(二)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-14 22:55:09" itemprop="dateCreated datePublished" datetime="2021-09-14T22:55:09+08:00">2021-09-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-15 02:19:28" itemprop="dateModified" datetime="2021-09-15T02:19:28+08:00">2021-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tadyweb/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/tadyweb/2021/09/14/Selenium2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/14/Selenium2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>利用 Selenium，玩小遊戲(測試)。<br>紀錄筆記</p>
+<span id="more"></span>
+
+<div class="note [class] [no-icon]">
+            <p><font color=#FF0000>提示 : </font>以上僅作為練習測試，而非惡意破壞遊戲體驗。</p><ul><li>聲明<br>如在它站利用 Selenium，被判罰或停權等等。<br>一概須自行負責!</li></ul>
+          </div>
+
+<hr>
+<h3 id="TSJ-遊戲"><a href="#TSJ-遊戲" class="headerlink" title="TSJ 遊戲"></a>TSJ 遊戲</h3><div class="note [class] [no-icon]">
+            <ul><li>TSJ 是？<br>這邊就不詳細說明，<del>之前很紅</del>，有興趣可自行搜詢!</li></ul>
+          </div>
+
+<hr>
+<h4 id="TSJ-遊戲介紹"><a href="#TSJ-遊戲介紹" class="headerlink" title="TSJ 遊戲介紹"></a>TSJ 遊戲介紹</h4><div class="note [class] [no-icon]">
+            <p>簡單滑鼠點擊遊戲，持續點擊來增加經驗點，可以購買道具加快累積經驗點，隨著次數累積解所成就!<br>建議可以先去察看遊戲介面，後續較好了解。<br>=&gt;<strong><a target="_blank" rel="noopener" href="https://tsj.tw/">官方</a></strong></p>
+          </div>
+
+<hr>
+<h4 id="Coding-解說"><a href="#Coding-解說" class="headerlink" title="Coding 解說"></a>Coding 解說</h4><h5 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h5><div class="note [class] [no-icon]">
+            <p>示範於 作業系統:windows 瀏覽器:Chrome<br>需先安裝:</p><ul><li>selenium<ul><li>使 <code>pip install selenium</code></li></ul></li><li>webdriver<ul><li>需先查看瀏覽器版本</li></ul></li></ul><p>step1: 打開 Chrome 找到<code>自訂及管理</code><br>step2: 找到<code>說明</code>點擊<br>step3: 找到<code>關於Google Chrome</code>點擊<br>step4: 查看<code>版本</code><br>step4: 下載對應版本 <strong><a target="_blank" rel="noopener" href="https://chromedriver.chromium.org/downloads">ChromeDriver</a></strong></p>
+          </div>
+
+<hr>
+<h5 id="載入套件"><a href="#載入套件" class="headerlink" title="載入套件"></a>載入套件</h5><div class="note [class] [no-icon]">
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="comment"># import Action chains</span></span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>程式透過呼叫 WebDriver 來直接對瀏覽器進行操作。<br>WebDriver 只是一個 API 介面，實作則決定於所選用的瀏覽器 driver(本篇是以 Google Chrome)</p><p>ActionChains 是一種自動化低級交互的方法，例如鼠標移動、鼠標按鈕操作、按鍵和上下文菜單交互。這對於執行更複雜的操作（例如懸停和拖放）非常有用。<br>詳細內容參考至官方文件 7.2 節<br>=&gt;<strong><a target="_blank" rel="noopener" href="https://selenium-python.readthedocs.io/api.html">官方文件</a></strong></p>
+          </div>
+
+<hr>
+<h5 id="定義"><a href="#定義" class="headerlink" title="定義"></a>定義</h5><div class="note [class] [no-icon]">
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">path = (<span class="string">&quot;you chromedriver.exe path &quot;</span>)</span><br><span class="line">driver = webdriver.Chrome(path)</span><br><span class="line">driver.get(<span class="string">&quot;https://tsj.tw/&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><font color=#FF0000>提示 : </font><strong>如是在檔案總管複製路徑需將<code>\</code>換成 <code>/</code>否者會出錯</strong>。</p><p>把 chromedriver 檔案路徑傳入，由於執行瀏覽器需<code>chromedriver.exe</code>執行檔。</p><p><code>driver.get()</code>表示指定要去的<strong>網址</strong>。</p>
+          </div>
+
+<hr>
+<h5 id="抓取所要控制區塊"><a href="#抓取所要控制區塊" class="headerlink" title="抓取所要控制區塊"></a>抓取所要控制區塊</h5><div class="note [class] [no-icon]">
+            <p><font color=#FF0000>提示 : </font><strong>如日後網頁<code>html</code>中內容有修改就會無法正常執行</strong>。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blow = driver.find_element_by_id(<span class="string">&quot;click&quot;</span>)</span><br><span class="line">blow_count = driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[2]/h4[2]&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(blow_count.text)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><code>driver.find_element_by_id(&quot;click&quot;)</code>取得 <strong>html 上 class 標籤為 click</strong>，取得到點擊增加經驗點的按鈕。</p><p><code>driver.find_element_by_xpath()</code>取得 <strong>html 上 xpath 位置</strong>，取得到有多經驗點的文字。</p><hr><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">items = []</span><br><span class="line">items.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[4]/td[5]/button[1]/i&#x27;</span>))</span><br><span class="line">items.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[3]/td[5]/button[1]/i&#x27;</span>))</span><br><span class="line">items.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[2]/td[5]/button[1]/i&#x27;</span>))</span><br><span class="line">prices = []</span><br><span class="line">prices.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[4]/td[4]&#x27;</span>))</span><br><span class="line">prices.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[3]/td[4]&#x27;</span>))</span><br><span class="line">prices.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[2]/td[4]&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>items 為陣列存放我們三個技能點的位置。<br>price 為陣列存放我們三個技能價格點的位置</p><p>step1: 打開 網站首頁，點擊<code>滑鼠右鍵</code>。連結 <strong><a target="_blank" rel="noopener" href="https://tsj.tw/">官方</a></strong><br>step2: 找到<code>檢查</code>點擊<br>step3: 找到<code>關於Google Chrome</code>點擊</p><hr><ul><li>點選左上藍色箭頭</li></ul><p><img src="https://upload.cc/i1/2021/09/15/YusxXO.png" alt="範例"></p><hr><ul><li><strong>拉藍色箭頭</strong>點到所要的按鈕</li></ul><p><img src="https://upload.cc/i1/2021/09/15/u4DohF.png" alt="範例"></p><hr><p>由此可查看到<code>Html</code>標籤，對應 class 或是 id 等等。</p><p>就能查看到要控制的按鈕。</p><p>取得<code>xpath</code>，點選 <strong>上圖</strong><code>藍色選取線點選右鍵</code> =&gt; 找到<code>copy</code>點擊 =&gt; 找到 <code>copyXPath</code>點擊 。</p><p>複製 xpath 範例格式:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[4]/td[5]/button[1]/i&#x27;</span></span><br></pre></td></tr></table></figure><p><code>driver.find_element_by_xpath()</code>取得 <strong>html 上 xpath 位置</strong></p>
+          </div>
+
+<hr>
+<h5 id="動作"><a href="#動作" class="headerlink" title="動作"></a>動作</h5><div class="note [class] [no-icon]">
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">actions = ActionChains(driver)</span><br><span class="line">actions.click(blow)</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li><p>啟用<code>ActionChains</code></p></li><li><p><code>actions.click(blow)</code> <strong>click</strong> 為點擊動作。</p></li></ul><hr><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">    actions.perform()</span><br><span class="line">    count = (<span class="built_in">int</span>(blow_count.text.replace(<span class="string">&quot;您目前擁有&quot;</span>, <span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;技術點&quot;</span>, <span class="string">&quot;&quot;</span>)))</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">        price = <span class="built_in">int</span>(prices[j].text.replace(<span class="string">&quot;您目前擁有&quot;</span>, <span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;技術點&quot;</span>, <span class="string">&quot;&quot;</span>))</span><br><span class="line">        <span class="keyword">if</span> price &lt;= count:</span><br><span class="line">            upgrade_action = ActionChains(driver)</span><br><span class="line">            upgrade_action.move_to_element(items[j])</span><br><span class="line">            upgrade_action.click()</span><br><span class="line">            upgrade_action.perform()</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li><p><code>actions.perform()</code>加上才會執行 <strong>actions</strong> 動作。</p></li><li><p><code>count = (int(blow_count.text.replace(&quot;您目前擁有&quot;, &quot;&quot;).replace(&quot;技術點&quot;, &quot;&quot;)))</code><br>取得文字<code>您目前擁有 x 技術點</code>，需要取得數字來判斷，把文字部分替代為空字串，在轉換型態<code>int</code>來做運算。</p></li></ul><hr><p>共有三個技能欄位，所以用<code>for</code>來回執行，輪流購買。</p><p><code>move_to_element(element)</code> ——鼠標移動元素上。</p><p><code>upgrade_action.click()</code> ——鼠標點擊。</p><p><code>upgrade_action.perform()</code> ——執行所有動作。</p><p><font color=#FF0000>PS : </font>最後須加上 <code>break</code> 否則會跑掉另一欄位點擊(此時經驗點已不足)，所以當滿足條件執行完就 break 跳出。</p>
+          </div>
+
+<hr>
+<h3 id="Popcat"><a href="#Popcat" class="headerlink" title="Popcat"></a>Popcat</h3><h4 id="Popcat-遊戲介紹"><a href="#Popcat-遊戲介紹" class="headerlink" title="Popcat 遊戲介紹"></a>Popcat 遊戲介紹</h4><div class="note [class] [no-icon]">
+            <p>簡單滑鼠點擊遊戲，持續點擊累積分數。</p><p><strong><em>這個最近算是很紅~</em></strong><br>=&gt;<strong><a target="_blank" rel="noopener" href="https://popcat.click/">官方</a></strong></p>
+          </div>
+
+<hr>
+<h4 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h4><div class="note [class] [no-icon]">
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="comment"># import Action chains</span></span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">path = (<span class="string">&quot;C:/Users/admin/Downloads/chromedriver_win32 (1)/chromedriver.exe&quot;</span>)</span><br><span class="line">driver = webdriver.Chrome(path)</span><br><span class="line">driver.get(<span class="string">&quot;https://popcat.click/&quot;</span>)</span><br><span class="line">pop = driver.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;app&quot;]/div&#x27;</span>)</span><br><span class="line"></span><br><span class="line">actions = ActionChains(driver)</span><br><span class="line">actions.click(pop)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    actions.perform()</span><br></pre></td></tr></table></figure>
+          </div>
+
+<hr>
+<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><div class="note [class] [no-icon]">
+            <p>基本上，能在靜態小遊戲測試，無法在線上遊戲中使用會被抓。</p>
+          </div>
+
+<hr>
+<h3 id="參考教學"><a href="#參考教學" class="headerlink" title="參考教學"></a>參考教學</h3><div class="note [class] [no-icon]">
+            <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ximjGyZ93YQ&t=2750s">GrandmaCan -我阿嬤都會</a></p>
+          </div>
+
+<hr>
+
+      
+      
+    </div>
+    
+    
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Tady lin
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://tady0725.github.io/tadyweb/2021/09/14/Selenium2/" title="Selenium(二)">https://tady0725.github.io/tadyweb/2021/09/14/Selenium2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tadyweb/tags/Coding/" rel="tag"><i class="fa fa-tag"></i> Coding</a>
+              <a href="/tadyweb/tags/Selenium/" rel="tag"><i class="fa fa-tag"></i> Selenium</a>
+          </div>
+        
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tadyweb/2021/09/14/Selenium/" rel="prev" title="Selenium(一)">
+      <i class="fa fa-chevron-left"></i> Selenium(一)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+  <div style="">
+  
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+ 
+        
+ </div>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TSJ-%E9%81%8A%E6%88%B2"><span class="nav-number">1.</span> <span class="nav-text">TSJ 遊戲</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TSJ-%E9%81%8A%E6%88%B2%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.1.</span> <span class="nav-text">TSJ 遊戲介紹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coding-%E8%A7%A3%E8%AA%AA"><span class="nav-number">1.2.</span> <span class="nav-text">Coding 解說</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D"><span class="nav-number">1.2.1.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BC%89%E5%85%A5%E5%A5%97%E4%BB%B6"><span class="nav-number">1.2.2.</span> <span class="nav-text">載入套件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.2.3.</span> <span class="nav-text">定義</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%93%E5%8F%96%E6%89%80%E8%A6%81%E6%8E%A7%E5%88%B6%E5%8D%80%E5%A1%8A"><span class="nav-number">1.2.4.</span> <span class="nav-text">抓取所要控制區塊</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8B%95%E4%BD%9C"><span class="nav-number">1.2.5.</span> <span class="nav-text">動作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Popcat"><span class="nav-number">2.</span> <span class="nav-text">Popcat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Popcat-%E9%81%8A%E6%88%B2%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.1.</span> <span class="nav-text">Popcat 遊戲介紹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coding"><span class="nav-number">2.2.</span> <span class="nav-text">Coding</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">3.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E6%95%99%E5%AD%B8"><span class="nav-number">4.</span> <span class="nav-text">參考教學</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Tady lin"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJypDV3ncRb_JolJYVA4rH28fXnfRdsMpeQg&usqp=CAU">
+  <p class="site-author-name" itemprop="name">Tady lin</p>
+  <div class="site-description" itemprop="description">The greatest test of courage on earth is to bear defeat without losing heart.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tadyweb/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tadyweb/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tadyweb/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/tady0725" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tady0725" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wa201267@gmail.com" title="E-Mail → mailto:wa201267@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/tmd8741/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;tmd8741&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" class="cc-opacity" rel="noopener" target="_blank"><img src="/tadyweb/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-> – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tady lin 若要轉載，請標註出處與原網址。</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">8k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7 mins.</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tadyweb/lib/anime.min.js"></script>
+  <script src="/tadyweb/lib/velocity/velocity.min.js"></script>
+  <script src="/tadyweb/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/tadyweb/js/utils.js"></script>
+
+<script src="/tadyweb/js/motion.js"></script>
+
+
+<script src="/tadyweb/js/schemes/pisces.js"></script>
+
+
+<script src="/tadyweb/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 32084,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/tadyweb/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://tadyweb.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://tady0725.github.io/tadyweb/2021/09/14/Selenium2/";
+    this.page.identifier = "2021/09/14/Selenium2/";
+    this.page.title = "Selenium(二)";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://tadyweb.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
