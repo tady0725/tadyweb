@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://upload.cc/i1/2021/09/15/YusxXO.png">
 <meta property="og:image" content="https://upload.cc/i1/2021/09/15/u4DohF.png">
 <meta property="article:published_time" content="2021-09-14T14:55:09.000Z">
-<meta property="article:modified_time" content="2021-09-14T18:19:28.483Z">
+<meta property="article:modified_time" content="2021-09-16T08:07:00.151Z">
 <meta property="article:author" content="Tady lin">
 <meta property="article:tag" content="Selenium">
 <meta property="article:tag" content="Coding">
@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 02:19:28" itemprop="dateModified" datetime="2021-09-15T02:19:28+08:00">2021-09-15</time>
+                <time title="Modified: 2021-09-16 16:07:00" itemprop="dateModified" datetime="2021-09-16T16:07:00+08:00">2021-09-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -325,7 +325,7 @@
 
 <hr>
 <h5 id="抓取所要控制區塊"><a href="#抓取所要控制區塊" class="headerlink" title="抓取所要控制區塊"></a>抓取所要控制區塊</h5><div class="note [class] [no-icon]">
-            <p><font color=#FF0000>提示 : </font><strong>如日後網頁<code>html</code>中內容有修改就會無法正常執行</strong>。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blow = driver.find_element_by_id(<span class="string">&quot;click&quot;</span>)</span><br><span class="line">blow_count = driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[2]/h4[2]&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(blow_count.text)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><code>driver.find_element_by_id(&quot;click&quot;)</code>取得 <strong>html 上 class 標籤為 click</strong>，取得到點擊增加經驗點的按鈕。</p><p><code>driver.find_element_by_xpath()</code>取得 <strong>html 上 xpath 位置</strong>，取得到有多經驗點的文字。</p><hr><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">items = []</span><br><span class="line">items.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[4]/td[5]/button[1]/i&#x27;</span>))</span><br><span class="line">items.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[3]/td[5]/button[1]/i&#x27;</span>))</span><br><span class="line">items.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[2]/td[5]/button[1]/i&#x27;</span>))</span><br><span class="line">prices = []</span><br><span class="line">prices.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[4]/td[4]&#x27;</span>))</span><br><span class="line">prices.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[3]/td[4]&#x27;</span>))</span><br><span class="line">prices.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[2]/td[4]&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>items 為陣列存放我們三個技能點的位置。<br>price 為陣列存放我們三個技能價格點的位置</p><p>step1: 打開 網站首頁，點擊<code>滑鼠右鍵</code>。連結 <strong><a target="_blank" rel="noopener" href="https://tsj.tw/">官方</a></strong><br>step2: 找到<code>檢查</code>點擊<br>step3: 找到<code>關於Google Chrome</code>點擊</p><hr><ul><li>點選左上藍色箭頭</li></ul><p><img src="https://upload.cc/i1/2021/09/15/YusxXO.png" alt="範例"></p><hr><ul><li><strong>拉藍色箭頭</strong>點到所要的按鈕</li></ul><p><img src="https://upload.cc/i1/2021/09/15/u4DohF.png" alt="範例"></p><hr><p>由此可查看到<code>Html</code>標籤，對應 class 或是 id 等等。</p><p>就能查看到要控制的按鈕。</p><p>取得<code>xpath</code>，點選 <strong>上圖</strong><code>藍色選取線點選右鍵</code> =&gt; 找到<code>copy</code>點擊 =&gt; 找到 <code>copyXPath</code>點擊 。</p><p>複製 xpath 範例格式:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[4]/td[5]/button[1]/i&#x27;</span></span><br></pre></td></tr></table></figure><p><code>driver.find_element_by_xpath()</code>取得 <strong>html 上 xpath 位置</strong></p>
+            <p><font color=#FF0000>提示 : </font><strong>如日後網頁<code>html</code>中內容有修改就會無法正常執行</strong>。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blow = driver.find_element_by_id(<span class="string">&quot;click&quot;</span>)</span><br><span class="line">blow_count = driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[2]/h4[2]&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(blow_count.text)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><code>driver.find_element_by_id(&quot;click&quot;)</code>取得 <strong>html 上 class 標籤為 click</strong>，取得到點擊增加經驗點的按鈕。</p><p><code>driver.find_element_by_xpath()</code>取得 <strong>html 上 xpath 位置</strong>，取得到有多經驗點的文字。</p><hr><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">items = []</span><br><span class="line">items.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[4]/td[5]/button[1]/i&#x27;</span>))</span><br><span class="line">items.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[3]/td[5]/button[1]/i&#x27;</span>))</span><br><span class="line">items.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[2]/td[5]/button[1]/i&#x27;</span>))</span><br><span class="line">prices = []</span><br><span class="line">prices.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[4]/td[4]&#x27;</span>))</span><br><span class="line">prices.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[3]/td[4]&#x27;</span>))</span><br><span class="line">prices.append(driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[2]/td[4]&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>items 為陣列存放我們三個技能點的位置。<br>price 為陣列存放我們三個技能價格點的位置</p><p>step1: 打開 網站首頁，點擊<code>滑鼠右鍵</code>。連結 <strong><a target="_blank" rel="noopener" href="https://tsj.tw/">官方</a></strong><br>step2: 找到<code>檢查</code>點擊</p><hr><ul><li>點選左上藍色箭頭</li></ul><p><img src="https://upload.cc/i1/2021/09/15/YusxXO.png" alt="範例"></p><hr><ul><li><strong>拉藍色箭頭</strong>點到所要的按鈕</li></ul><p><img src="https://upload.cc/i1/2021/09/15/u4DohF.png" alt="範例"></p><hr><p>由此可查看到<code>Html</code>標籤，對應 class 或是 id 等等。</p><p>就能查看到要控制的按鈕。</p><p>取得<code>xpath</code>，點選 <strong>上圖</strong><code>藍色選取線點選右鍵</code> =&gt; 找到<code>copy</code>點擊 =&gt; 找到 <code>copyXPath</code>點擊 。</p><p>複製 xpath 範例格式:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;//*[@id=&quot;app&quot;]/div[2]/div[4]/div[4]/table/tbody/tr[4]/td[5]/button[1]/i&#x27;</span></span><br></pre></td></tr></table></figure><p><code>driver.find_element_by_xpath()</code>取得 <strong>html 上 xpath 位置</strong></p>
           </div>
 
 <hr>
@@ -340,7 +340,7 @@
 
 <hr>
 <h4 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h4><div class="note [class] [no-icon]">
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="comment"># import Action chains</span></span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">path = (<span class="string">&quot;C:/Users/admin/Downloads/chromedriver_win32 (1)/chromedriver.exe&quot;</span>)</span><br><span class="line">driver = webdriver.Chrome(path)</span><br><span class="line">driver.get(<span class="string">&quot;https://popcat.click/&quot;</span>)</span><br><span class="line">pop = driver.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;app&quot;]/div&#x27;</span>)</span><br><span class="line"></span><br><span class="line">actions = ActionChains(driver)</span><br><span class="line">actions.click(pop)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    actions.perform()</span><br></pre></td></tr></table></figure>
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="comment"># import Action chains</span></span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">path = (<span class="string">&quot;you chromedriver.exe path&quot;</span>)</span><br><span class="line">driver = webdriver.Chrome(path)</span><br><span class="line">driver.get(<span class="string">&quot;https://popcat.click/&quot;</span>)</span><br><span class="line">pop = driver.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;app&quot;]/div&#x27;</span>)</span><br><span class="line"></span><br><span class="line">actions = ActionChains(driver)</span><br><span class="line">actions.click(pop)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    actions.perform()</span><br></pre></td></tr></table></figure>
           </div>
 
 <hr>
@@ -404,7 +404,10 @@
     <a href="/tadyweb/2021/09/14/Selenium/" rel="prev" title="Selenium(一)">
       <i class="fa fa-chevron-left"></i> Selenium(一)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/tadyweb/2021/09/16/selenium3/" rel="next" title="selenium(三)">
+      selenium(三) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
         
       </footer>
@@ -492,7 +495,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/tadyweb/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -505,7 +508,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tadyweb/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -555,12 +558,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">8k</span>
+    <span title="Symbols count total">17k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">7 mins.</span>
+    <span title="Reading time total">15 mins.</span>
 </div>
 
         
