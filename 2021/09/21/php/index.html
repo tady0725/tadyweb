@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://upload.cc/i1/2021/08/31/sVywbz.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://upload.cc/i1/2021/08/31/sVywbz.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://upload.cc/i1/2021/08/31/sVywbz.png">
+  <link rel="mask-icon" href="https://upload.cc/i1/2021/08/31/sVywbz.png" color="#222">
+
+<link rel="stylesheet" href="/tadyweb/css/main.css">
+
+
+<link rel="stylesheet" href="/tadyweb/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tady0725.github.io","root":"/tadyweb/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="Php 語法筆記，後端語言。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php(一)">
+<meta property="og:url" content="https://tady0725.github.io/tadyweb/2021/09/21/php/index.html">
+<meta property="og:site_name" content="My blogs">
+<meta property="og:description" content="Php 語法筆記，後端語言。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload.cc/i1/2021/09/21/tUiBOp.png">
+<meta property="article:published_time" content="2021-09-21T09:04:05.000Z">
+<meta property="article:modified_time" content="2021-09-21T16:17:31.338Z">
+<meta property="article:author" content="Tady lin">
+<meta property="article:tag" content="後端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.cc/i1/2021/09/21/tUiBOp.png">
+
+<link rel="canonical" href="https://tady0725.github.io/tadyweb/2021/09/21/php/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>php(一) | My blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/tadyweb/atom.xml" title="My blogs" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/tady0725" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/tadyweb/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">My blogs</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Welcome my lab</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/tadyweb/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/tadyweb/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tadyweb/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/tadyweb/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/tadyweb/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tady0725.github.io/tadyweb/2021/09/21/php/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJypDV3ncRb_JolJYVA4rH28fXnfRdsMpeQg&usqp=CAU">
+      <meta itemprop="name" content="Tady lin">
+      <meta itemprop="description" content="The greatest test of courage on earth is to bear defeat without losing heart.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          php(一)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-21 17:04:05" itemprop="dateCreated datePublished" datetime="2021-09-21T17:04:05+08:00">2021-09-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-22 00:17:31" itemprop="dateModified" datetime="2021-09-22T00:17:31+08:00">2021-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/tadyweb/categories/Php/" itemprop="url" rel="index"><span itemprop="name">Php</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/tadyweb/2021/09/21/php/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/21/php/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="note [class] [no-icon]">
+            <p>Php 語法筆記，後端語言。</p>
+          </div>
+
+<span id="more"></span>
+
+<h3 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h3><div class="note [class] [no-icon]">
+            <p><strong>Php</strong> 是一種通用開源腳本語言。語法吸收了 C 語言、Java 和 Perl 的特點，利於學習，使用廣泛，主要適用於 Web 開發領域。PHP 獨特的語法混合了 C、Java、Perl 以及 PHP 自創的語法。它可以比 CGI 或者 Perl 更快速地執行動態網頁。用 PHP 做出的動態頁面與其他的程式語言相比，PHP 是將程序嵌入到 HTML 文檔中去執行，執行效率比完全生成 HTML 標記的 CGI 要高許多；PHP 還可以執行編譯後代碼，編譯可以達到加密和優化代碼運行，使代碼運行更快。</p>
+          </div>
+
+<hr>
+<h3 id="php-在網站後端中"><a href="#php-在網站後端中" class="headerlink" title="php 在網站後端中"></a>php 在網站後端中</h3><div class="note [class] [no-icon]">
+            <ul><li>比較圖如下:</li></ul><p><img src="https://upload.cc/i1/2021/09/21/tUiBOp.png" alt="比較"></p><p><a target="_blank" rel="noopener" href="https://w3techs.com/technologies/overview/programming_language">參考網站</a></p><blockquote><p>結論來說使用率還是相對來高</p></blockquote>
+          </div>
+
+<hr>
+<h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><h4 id="echo-輸出字串（String）"><a href="#echo-輸出字串（String）" class="headerlink" title="echo 輸出字串（String）"></a>echo 輸出字串（String）</h4><div class="note [class] [no-icon]">
+            <p>常常有人將 echo 誤以為是一個函數，其實 echo 並不是 PHP 函數，而是一個語言結構（language construct）</p><p>使用 <code>echo</code> 的時候並不一定需要用<strong>小括號</strong>，可以直接使用<strong>單引號、雙引號</strong>。</p><p><font color=#FF0000>PS : </font>PHP <strong>echo</strong> 並<font color=#FF0000>非是一個函數</font>。</p><blockquote><p>輸出的是<strong>變數</strong>，則不能使用<strong>單引號</strong>，否則 <code>PHP</code> 會將 <strong><em>單引號的內容當成字串直接輸出</em></strong> ，而不是輸出變數內容。</p></blockquote>
+          </div>
+
+<hr>
+<p>EX1:</p>
+<div class="note [class] [no-icon]">
+            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">　<span class="keyword">echo</span> <span class="string">&#x27;測試一&lt;br&gt;&#x27;</span>;</span><br><span class="line">　<span class="keyword">echo</span> <span class="string">&quot;測試二&lt;br&gt;&quot;</span> ;</span><br><span class="line">　<span class="keyword">echo</span> (<span class="string">&#x27;測試三&lt;br&gt;&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>結果如下 :</li></ul><p>測試一<br>測試二<br>測試三</p>
+          </div>
+
+<hr>
+<p>EX2 (以變數方式):</p>
+<div class="note [class] [no-icon]">
+            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">　<span class="variable">$test</span>=<span class="string">&#x27;PHP  test.&#x27;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$test</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>結果如下 :</li></ul><p>PHP test.</p><hr><p><font color=#FF0000>PS : </font>上述說到<strong>單雙引號區別</strong></p><p>此例子可加上<strong>雙引號</strong>寫成<code>echo &quot;$test&quot;</code>，輸出皆相同。</p><p>若加上<strong>單引號</strong><code>echo &#39;$test&#39;</code>，則輸出為<code>$test</code>而非<strong>變數內容</strong>。</p>
+          </div>
+
+<hr>
+<h4 id="echo-vs-print"><a href="#echo-vs-print" class="headerlink" title="echo vs print"></a><strong>echo</strong> vs <strong>print</strong></h4><div class="note [class] [no-icon]">
+            <p>用法與 <strong>echo</strong> 類似，嚴格來說 PHP print 本身並<strong>不是一個 PHP 函式</strong>，執行 <u>效率比 echo <strong>稍微慢一點點</strong></u>，處理程序單純的情況下，兩者差異其實並不大，PHP print 可以用<strong>單引號輸出單純的字串，也可以用雙引號輸出變數值</strong>。</p>
+          </div>
+
+<hr>
+<h4 id="php加用法"><a href="#php加用法" class="headerlink" title="php加用法"></a>php<strong>加</strong>用法</h4><div class="note [class] [no-icon]">
+            <p>使用<code>.</code>連接起來(字串，變數)，<code>+</code>與其他語言不大相同。</p><p>EX1:</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$test</span> = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line">    <span class="variable">$test1</span> = <span class="string">&#x27;大家!&#x27;</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;<span class="subst">$test</span>&quot;</span>.<span class="string">&quot;<span class="subst">$test1</span>&lt;br/&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;今年是&#x27;</span>.date(<span class="string">&#x27;Y&#x27;</span>).<span class="string">&#x27;年&lt;br/&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;今天是&#x27;</span>.date(<span class="string">&#x27;Y-m-d&#x27;</span>).<span class="string">&#x27;日&#x27;</span> ;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>結果如下 :</li></ul><p>hello 大家!<br>今年是 2021 年<br>今天是 2021-09-21 日</p>
+          </div>
+
+<hr>
+<h4 id="php註解"><a href="#php註解" class="headerlink" title="php註解"></a>php<strong>註解</strong></h4><div class="note [class] [no-icon]">
+            <p>註解範例</p><blockquote><p>單一 : 兩個斜線<code>//</code>開始，斜線後方就是註解。<br>多筆 : 斜線加上星號如<code>/*</code>，結尾是星號加上斜線如<code>*/</code>。</p></blockquote><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 這裡是單行 PHP 註解 ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">...這裡是多行 PHP 註解</span></span><br><span class="line"><span class="comment">...這裡是多行 PHP 註解</span></span><br><span class="line"><span class="comment">...這裡是多行 PHP 註解</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+          </div>
+
+<hr>
+<h3 id="php變數命名"><a href="#php變數命名" class="headerlink" title="php變數命名"></a>php<strong>變數命名</strong></h3><div class="note [class] [no-icon]">
+            <p><strong>PHP</strong> 變數有許多種不同的型態，例如常見的字串變數 String、整數變數 Integer、浮點數 Float、布林值 Boolean、陣列 Array、物件 Object … 等。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 字串 String</span></span><br><span class="line"><span class="variable">$my_variables</span>=<span class="string">&quot;Welcome&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$my_variables</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 整數 Integer</span></span><br><span class="line"><span class="variable">$my_integer_number</span>=<span class="number">20</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$my_integer_number</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 浮點數 Float</span></span><br><span class="line"><span class="variable">$my_float</span>=<span class="number">3.1415926</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$my_float</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 陣列型態 Array</span></span><br><span class="line"><span class="variable">$my_array</span>=<span class="keyword">array</span>(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>);</span><br><span class="line">print_r(<span class="variable">$my_array</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 布林值 Boolean</span></span><br><span class="line"><span class="variable">$MyVariables1</span>=<span class="literal">true</span>; <span class="comment">// 0</span></span><br><span class="line"><span class="variable">$MyVariables2</span>=<span class="literal">false</span>;<span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><h4 id="命名規則"><a href="#命名規則" class="headerlink" title="命名規則"></a>命名規則</h4><ul><li><p>前方都必須<strong>美金符號（$）</strong>做開頭。</p></li><li><p>變數名稱英文字母、數字、底線與十六進位制或符號<code>_</code>。</p></li><li><p>變數的第一個字母不可以用數字開頭。</p></li><li><p>英文大小寫為不同。</p></li></ul>
+          </div>
+
+<hr>
+<h3 id="字串-string-相關函數"><a href="#字串-string-相關函數" class="headerlink" title="字串(string)相關函數"></a>字串(string)相關函數</h3><div class="note [class] [no-icon]">
+            <p>想要加入特殊符號在字串中，在符號前加上<code>\</code>。</p><h4 id="取得字串長度-strlen"><a href="#取得字串長度-strlen" class="headerlink" title="取得字串長度 strlen()"></a>取得字串長度 <code>strlen()</code></h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;字串長度&quot;</span>.strlen(<span class="string">&quot;hello&quot;</span>).<span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;字串長度&quot;</span>.strlen(<span class="string">&quot;你好hi&quot;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>結果如下 :</li></ul><p>字串長度 5<br>字串長度 8<br><font color=#FF0000>PS : </font>中文字一個字算三。</p><hr><p>這邊改成</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;字串長度&quot;</span>.strlen(<span class="string">&quot;hello&quot;</span>).<span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;字串長度&quot;</span>.mb_strlen(<span class="string">&quot;你好hi&quot;</span>,<span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>結果如下 :</li></ul><p>字串長度 5<br>字串長度 4</p><p><font color=#FF0000>PS : </font><code>mb_strlen</code>第一個參數<strong>string 是要計算長度的字串</strong>，必要項目，而第二個參數 string encoding 則是要判斷的編碼，使用萬國碼就用 <strong>utf-8</strong>。</p><hr><h4 id="取得字串內容-substr"><a href="#取得字串內容-substr" class="headerlink" title="取得字串內容 substr()"></a>取得字串內容 <code>substr()</code></h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$test</span> = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> substr(<span class="variable">$test</span>,<span class="number">0</span>,<span class="number">2</span>).<span class="string">&#x27;&lt;br/&gt;&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> substr(<span class="variable">$test</span>,<span class="number">5</span>,<span class="number">5</span>).<span class="string">&#x27;&lt;br/&gt;&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> substr(<span class="variable">$test</span>,-<span class="number">2</span>).<span class="string">&#x27;&lt;br/&gt;&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> substr(<span class="variable">$test</span>,<span class="number">0</span>,-<span class="number">1</span>).<span class="string">&#x27;&lt;br/&gt;&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>結果如下 :</li></ul><p>he<br>worl<br>ld<br>hello worl</p><p><font color=#FF0000>PS : </font><code>substr( $string , $start , $length )</code>$strting 是原始的字串，$start 是要開始擷取的位置，$length 則為要截取的字串長度。<br><code>$start 與 $length</code>必須為數字才有作用，可為<strong>正負整數</strong>。</p><hr><p>中文改成</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$test</span> = <span class="string">&quot;今天天氣很好&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> mb_substr(<span class="variable">$test</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="string">&#x27;utf-8&#x27;</span>).<span class="string">&#x27;&lt;br/&gt;&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>結果如下 :</li></ul><p>今天</p>
+          </div>
+
+<hr>
+<h3 id="布林-boolean"><a href="#布林-boolean" class="headerlink" title="布林(boolean)"></a>布林(boolean)</h3><div class="note [class] [no-icon]">
+            <p><code>var_dump</code>印出變數的相關訊息於螢幕上，變數的值或是變數的<strong>種類</strong>，也能一次處理<strong>多個變數的功能</strong>。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$test</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="variable">$test2</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;test : &quot;</span>;</span><br><span class="line">var_dump(<span class="variable">$test</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;br/&gt;&quot;</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;test2 : &quot;</span>;</span><br><span class="line">var_dump(<span class="variable">$test2</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;br/&gt;&quot;</span> ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;test : &quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;<span class="subst">$test</span>&quot;</span>.<span class="string">&#x27;&lt;br/&gt;&#x27;</span> ;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;test2 : &quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;<span class="subst">$test2</span>&quot;</span>.<span class="string">&#x27;&lt;br/&gt;&#x27;</span> ;</span><br><span class="line"><span class="comment">//多個判別變數</span></span><br><span class="line">var_dump(<span class="string">&#x27;hi&#x27;</span>,<span class="number">1</span>,<span class="number">2.5</span>)</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><ul><li>結果如下 :</li></ul><p>test : bool(true)<br>test2 : bool(false)<br>test : 1<br>test2 :</p><p>string(2) “hi” int(1) float(2.5)</p><p><font color=#FF0000>PS : </font><strong>PHP</strong> 會把 true 轉成 1，遇到 false 會轉成空字串(“”)。</p>
+          </div>
+
+<hr>
+<h3 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h3><div class="note [class] [no-icon]">
+            <p><a target="_blank" rel="noopener" href="https://www.wibibi.com/info.php?tid=291">網頁設計教學百科</a><br><a target="_blank" rel="noopener" href="https://www.happycoding.today/posts/34">快樂學程式</a></p>
+          </div>
+
+<hr>
+
+      
+      
+    </div>
+    
+    
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Tady lin
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://tady0725.github.io/tadyweb/2021/09/21/php/" title="php(一)">https://tady0725.github.io/tadyweb/2021/09/21/php/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tadyweb/tags/%E5%BE%8C%E7%AB%AF/" rel="tag"><i class="fa fa-tag"></i> 後端</a>
+          </div>
+        
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tadyweb/2021/09/16/selenium3/" rel="prev" title="selenium(三)">
+      <i class="fa fa-chevron-left"></i> selenium(三)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+  <div style="">
+  
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+ 
+        
+ </div>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php-%E5%9C%A8%E7%B6%B2%E7%AB%99%E5%BE%8C%E7%AB%AF%E4%B8%AD"><span class="nav-number">2.</span> <span class="nav-text">php 在網站後端中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">語法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#echo-%E8%BC%B8%E5%87%BA%E5%AD%97%E4%B8%B2%EF%BC%88String%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">echo 輸出字串（String）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#echo-vs-print"><span class="nav-number">3.2.</span> <span class="nav-text">echo vs print</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#php%E5%8A%A0%E7%94%A8%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">php加用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#php%E8%A8%BB%E8%A7%A3"><span class="nav-number">3.4.</span> <span class="nav-text">php註解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php%E8%AE%8A%E6%95%B8%E5%91%BD%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">php變數命名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E8%A6%8F%E5%89%87"><span class="nav-number">4.1.</span> <span class="nav-text">命名規則</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2-string-%E7%9B%B8%E9%97%9C%E5%87%BD%E6%95%B8"><span class="nav-number">5.</span> <span class="nav-text">字串(string)相關函數</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%96%E5%BE%97%E5%AD%97%E4%B8%B2%E9%95%B7%E5%BA%A6-strlen"><span class="nav-number">5.1.</span> <span class="nav-text">取得字串長度 strlen()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%96%E5%BE%97%E5%AD%97%E4%B8%B2%E5%85%A7%E5%AE%B9-substr"><span class="nav-number">5.2.</span> <span class="nav-text">取得字串內容 substr()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E6%9E%97-boolean"><span class="nav-number">6.</span> <span class="nav-text">布林(boolean)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E7%B6%B2%E7%AB%99"><span class="nav-number">7.</span> <span class="nav-text">參考網站</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Tady lin"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJypDV3ncRb_JolJYVA4rH28fXnfRdsMpeQg&usqp=CAU">
+  <p class="site-author-name" itemprop="name">Tady lin</p>
+  <div class="site-description" itemprop="description">The greatest test of courage on earth is to bear defeat without losing heart.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/tadyweb/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/tadyweb/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tadyweb/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/tady0725" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tady0725" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wa201267@gmail.com" title="E-Mail → mailto:wa201267@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/tmd8741/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;tmd8741&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" class="cc-opacity" rel="noopener" target="_blank"><img src="/tadyweb/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-> – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tady lin 若要轉載，請標註出處與原網址。</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">20k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">18 mins.</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/tadyweb/lib/anime.min.js"></script>
+  <script src="/tadyweb/lib/velocity/velocity.min.js"></script>
+  <script src="/tadyweb/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/tadyweb/js/utils.js"></script>
+
+<script src="/tadyweb/js/motion.js"></script>
+
+
+<script src="/tadyweb/js/schemes/pisces.js"></script>
+
+
+<script src="/tadyweb/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 32084,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/tadyweb/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://tadyweb.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://tady0725.github.io/tadyweb/2021/09/21/php/";
+    this.page.identifier = "2021/09/21/php/";
+    this.page.title = "php(一)";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://tadyweb.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
