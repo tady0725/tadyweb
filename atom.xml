@@ -6,7 +6,7 @@
   <link href="https://tady0725.github.io/tadyweb/atom.xml" rel="self"/>
   
   <link href="https://tady0725.github.io/tadyweb/"/>
-  <updated>2021-09-30T18:55:53.677Z</updated>
+  <updated>2021-10-12T16:48:01.595Z</updated>
   <id>https://tady0725.github.io/tadyweb/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL</title>
+    <link href="https://tady0725.github.io/tadyweb/2021/10/12/SQL/"/>
+    <id>https://tady0725.github.io/tadyweb/2021/10/12/SQL/</id>
+    <published>2021-10-12T15:38:11.000Z</published>
+    <updated>2021-10-12T16:48:01.595Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h3><div class="note [class] [no-icon]">            <p>SQL 語法筆記。</p>          </div><span id="more"></span><hr><h3 id="重要的-SQL-命令"><a href="#重要的-SQL-命令" class="headerlink" title="重要的 SQL 命令"></a>重要的 SQL 命令</h3><div class="note [class] [no-icon]">            <table><thead><tr><th>指令</th><th>說明</th></tr></thead><tbody><tr><td><code>SELECT</code></td><td>從數據庫中提取數據</td></tr><tr><td><code>UPDATE</code></td><td>更新數據庫中的數據</td></tr><tr><td><code>DELETE</code></td><td>從數據庫中刪除數據</td></tr><tr><td><code>INSERT INTO</code></td><td>將新數據插入數據庫</td></tr><tr><td><code>CREATE DATABASE</code></td><td>創建一個新的數據庫</td></tr><tr><td><code>ALTER DATABASE</code></td><td>修改數據庫</td></tr><tr><td><code>CREATE TABLE</code></td><td>創建一個新表</td></tr><tr><td><code>ALTER TABLE</code></td><td>修改表格</td></tr><tr><td><code>DROP TABLE</code></td><td>刪除一個表</td></tr><tr><td><code>CREATE INDEX</code></td><td>創建索引（搜索鍵）</td></tr><tr><td><code>DROP INDEX</code></td><td>刪除索引</td></tr></tbody></table>          </div><hr><h4 id="SQL-SELECT"><a href="#SQL-SELECT" class="headerlink" title="SQL SELECT"></a>SQL SELECT</h4><div class="note [class] [no-icon]">            <p>選擇部分<strong>行</strong>查詢。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> col1, col2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure><hr><p><strong>SELECT 語句裡用 * 這個特殊符號</strong>查詢所表格內資料。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure><hr><p>在 <code>SELECT</code> 查詢語句中我們可使用 DISTINCT 關鍵字過濾<strong>重複出現</strong>的紀錄值。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> table_column1, table_column2...</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure><hr><p><strong>數量</strong>。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> table_column1) <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>          </div><hr><h4 id="SQL-WHERE"><a href="#SQL-WHERE" class="headerlink" title="SQL WHERE"></a>SQL WHERE</h4><div class="note [class] [no-icon]">            <blockquote><p><code>WHERE</code>條款不僅在使用 <code>SELECT</code>的語句，它也被用在<code>UPDATE</code>，<code>DELETE</code>。</p></blockquote><p><strong>選擇</strong>特定行中值作為查詢目標。</p><p>ex : 所有客戶表格中，欄位 <strong>Country</strong> 值為 <strong>台灣</strong>。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Country<span class="operator">=</span><span class="string">&#x27;taiwan&#x27;</span>;</span><br></pre></td></tr></table></figure><hr><p><strong>WHERE 子句中的運算符</strong>。</p><table><thead><tr><th>指令</th><th>說明</th></tr></thead><tbody><tr><td><code>=</code></td><td>等於</td></tr><tr><td><code>&gt;</code></td><td>大於</td></tr><tr><td><code>&lt;</code></td><td>小於</td></tr><tr><td><code>&gt;=</code></td><td>大於等於</td></tr><tr><td><code>&lt;=</code></td><td>小於等於</td></tr><tr><td><code>&lt;&gt;</code></td><td>不等於</td></tr><tr><td><code>BETWEEN</code></td><td>在區間內</td></tr><tr><td><code>LIKE</code></td><td>搜索模式</td></tr><tr><td><code>IN</code></td><td>為一列指定多個可能的值</td></tr></tbody></table><hr><p><code>WHERE</code> 子句可以結合 <code>AND</code>，<code>OR</code> 和 <code>NOT</code> 。</p><p>ex <strong>and</strong> : 所有客戶表格中，欄位 <strong>Country</strong> 值為 <strong>台灣</strong> 且欄位 <strong>city</strong> 值為 <strong>台北</strong>。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- and ex</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Country<span class="operator">=</span><span class="string">&#x27;taiwan&#x27;</span> <span class="keyword">AND</span> City<span class="operator">=</span><span class="string">&#x27;taipei&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- not ex</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> Country<span class="operator">=</span><span class="string">&#x27;taiwan&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--  or ex</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Country<span class="operator">=</span><span class="string">&#x27;Germany&#x27;</span> <span class="keyword">OR</span> Country<span class="operator">=</span><span class="string">&#x27;Spain&#x27;</span>;</span><br></pre></td></tr></table></figure><hr><p><strong>結合 and &amp;　 not</strong>。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> Country<span class="operator">=</span><span class="string">&#x27;Germany&#x27;</span> <span class="keyword">AND</span> <span class="keyword">NOT</span> Country<span class="operator">=</span><span class="string">&#x27;USA&#x27;</span>;</span><br></pre></td></tr></table></figure>          </div><hr><h4 id="SQL-ORDER-BY-Keyword"><a href="#SQL-ORDER-BY-Keyword" class="headerlink" title="SQL ORDER BY Keyword"></a>SQL ORDER BY Keyword</h4><div class="note [class] [no-icon]">            <p><code>ORDER BY</code> 關鍵字用於按<strong>升序或降序</strong>對結果集進行<strong>排序</strong>。</p><p>ps : <strong>ASC</strong> 由小至大排列，<strong>DESC</strong> 由大至小排列。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column1, column2, ... <span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>          </div><hr><h4 id="SQL-INSERT-INTO"><a href="#SQL-INSERT-INTO" class="headerlink" title="SQL INSERT INTO"></a>SQL INSERT INTO</h4><div class="note [class] [no-icon]">            <p><code>INSERT INTO</code> 語句用於在表中插入新記錄。</p><p>ps : 確保值的順序與表中的列順序相同。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> shop (cake, pizza, soup)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&#x27;green tea cake&#x27;</span>, <span class="string">&#x27;Sausage cheese&#x27;</span>, <span class="string">&#x27;Corn bisque&#x27;</span>);</span><br></pre></td></tr></table></figure>          </div><hr>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;介紹&quot;&gt;&lt;a href=&quot;#介紹&quot; class=&quot;headerlink&quot; title=&quot;介紹&quot;&gt;&lt;/a&gt;介紹&lt;/h3&gt;&lt;div class=&quot;note [class] [no-icon]&quot;&gt;
+            &lt;p&gt;SQL 語法筆記。&lt;/p&gt;
+          &lt;/div&gt;</summary>
+    
+    
+    
+    <category term="SQL" scheme="https://tady0725.github.io/tadyweb/categories/SQL/"/>
+    
+    
+    <category term="Database" scheme="https://tady0725.github.io/tadyweb/tags/Database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mood</title>
+    <link href="https://tady0725.github.io/tadyweb/2021/10/12/mood/"/>
+    <id>https://tady0725.github.io/tadyweb/2021/10/12/mood/</id>
+    <published>2021-10-12T15:37:54.000Z</published>
+    <updated>2021-10-12T17:13:20.388Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note [class] [no-icon]">            <p>心情文。</p>          </div><span id="more"></span><h3 id="小記"><a href="#小記" class="headerlink" title="小記"></a>小記</h3><div class="note [class] [no-icon]">            <p>人在選擇中必然會放棄之一，無法兼得，但卻無法得知何謂最好選擇，想著達成最佳解，卻是事以願違。</p><p>選擇在人性中何謂為自私?當立場不同時主觀來說都是成立，此時換為思考確實重要。</p><p>我想能夠做的也只有在做選擇之前思考好，並不讓自身後悔所做的選擇。</p><p>何謂最好選擇? 無</p><p>只有當下最好選擇…..</p>          </div><hr><div class="note [class] [no-icon]">            <p><strong>Nobody can go back and start a new beginning, but anyone can start today and make a new ending.</strong></p>          </div><hr>]]></content>
+    
+    
+    <summary type="html">&lt;div class=&quot;note [class] [no-icon]&quot;&gt;
+            &lt;p&gt;心情文。&lt;/p&gt;
+          &lt;/div&gt;</summary>
+    
+    
+    
+    
+    <category term="隨手記" scheme="https://tady0725.github.io/tadyweb/tags/%E9%9A%A8%E6%89%8B%E8%A8%98/"/>
+    
+  </entry>
   
   <entry>
     <title>OOP</title>
