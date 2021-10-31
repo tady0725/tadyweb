@@ -28,7 +28,7 @@
 <meta property="og:description" content="介紹             SQL 語法筆記。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-12T15:38:11.000Z">
-<meta property="article:modified_time" content="2021-10-12T16:48:01.595Z">
+<meta property="article:modified_time" content="2021-10-16T07:32:31.645Z">
 <meta property="article:author" content="Tady lin">
 <meta property="article:tag" content="Database">
 <meta name="twitter:card" content="summary">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-13 00:48:01" itemprop="dateModified" datetime="2021-10-13T00:48:01+08:00">2021-10-13</time>
+                <time title="Modified: 2021-10-16 15:32:31" itemprop="dateModified" datetime="2021-10-16T15:32:31+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,14 +268,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -319,6 +319,24 @@
           </div>
 
 <hr>
+<h4 id="SQL-NULL"><a href="#SQL-NULL" class="headerlink" title="SQL NULL"></a>SQL NULL</h4><div class="note [class] [no-icon]">
+            <p><code>NULL</code>值的字段是沒有值的字段。</p><p>ps : 不向該字段添加值的情況下<strong>插入新記錄或更新記錄</strong>。然後，該字段將保存為 <code>NULL</code> 值。</p><p><strong>NULL</strong> 值不同於<strong>零</strong>值或包含<strong>空格的字段</strong>。具有 <code>NULL</code> 值的字段是在創建記錄期間留空的字段！</p><p><strong>NULL</strong>無法使用比較運算符。</p><blockquote><p><code>IS NULL</code> or <code>IS NOT NULL</code>查詢欄位中空值。</p></blockquote><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">--  is null</span></span><br><span class="line"><span class="keyword">SELECT</span> column_1</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_1 <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">--  IS NOT NULL</span></span><br><span class="line"><span class="keyword">SELECT</span> column_1</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_1 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+          </div>
+
+<hr>
+<h4 id="SQL-UPDATE-amp-DELETE"><a href="#SQL-UPDATE-amp-DELETE" class="headerlink" title="SQL UPDATE &amp; DELETE"></a>SQL UPDATE &amp; DELETE</h4><div class="note [class] [no-icon]">
+            <p><code>UPDATE</code> 語句用於修改表中的現有記錄。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name</span><br><span class="line"><span class="keyword">SET</span> Col1 <span class="operator">=</span> <span class="string">&#x27;newvalue&#x27;</span>, col2<span class="operator">=</span> <span class="string">&#x27;newvalue&#x27;</span></span><br><span class="line"><span class="keyword">WHERE</span> ID <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- like</span></span><br><span class="line"><span class="comment">-- UPDATE Customers</span></span><br><span class="line"><span class="comment">-- SET ContactName = &#x27;Alfred Schmidt&#x27;, City= &#x27;Frankfurt&#x27;</span></span><br><span class="line"><span class="comment">-- WHERE CustomerID = 1;</span></span><br></pre></td></tr></table></figure><hr><p><code>DELETE</code> 語句用於刪除表中的現有記錄。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tablename <span class="keyword">WHERE</span> Col<span class="operator">=</span><span class="string">&#x27;value&#x27;</span>;</span><br><span class="line"><span class="comment">-- like</span></span><br><span class="line"><span class="comment">-- DELETE FROM Customers WHERE CustomerName=&#x27;Alfreds Futterkiste&#x27;;</span></span><br></pre></td></tr></table></figure>
+          </div>
+
+<hr>
+<h4 id="SQL-MIN-amp-MAX-＆-COUNT-amp-AVG-amp-SUM"><a href="#SQL-MIN-amp-MAX-＆-COUNT-amp-AVG-amp-SUM" class="headerlink" title="SQL MIN &amp; MAX ＆ COUNT &amp; AVG &amp; SUM"></a>SQL MIN &amp; MAX ＆ COUNT &amp; AVG &amp; SUM</h4><div class="note [class] [no-icon]">
+            <p><code>MIN()</code> 函數返回所選列的最小值。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MIN</span>(Price)</span><br><span class="line"><span class="keyword">FROM</span> Products;</span><br></pre></td></tr></table></figure><hr><p><code>MAX()</code> 函數返回所選列的最大值。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(Price)</span><br><span class="line"><span class="keyword">FROM</span> Products;</span><br><span class="line"></span><br></pre></td></tr></table></figure><hr><p><code>COUNT()</code>函數返回與指定條件匹配的行數。</p><p><code>AVG()</code>函數返回數字列的平均值。</p><p><code>SUM()</code>函數返回數字列的總和。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> SUM<span class="operator">/</span>AVG<span class="operator">/</span><span class="built_in">COUNT</span>(col)</span><br><span class="line"><span class="keyword">FROM</span> tablename;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          </div>
+
+<hr>
+<h4 id="SQL-LIKE-Operator"><a href="#SQL-LIKE-Operator" class="headerlink" title="SQL LIKE Operator"></a>SQL LIKE Operator</h4><div class="note [class] [no-icon]">
+            <ul><li><code>百分號 (%)</code> 代表零、一個或多個字符。</li><li><code>下劃線 (_)</code> 代表一個，單個字符。</li></ul><p><code>%a</code> 表示查詢出<strong>a 開頭國家</strong>。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> world</span><br><span class="line"><span class="keyword">WHERE</span> countryname <span class="keyword">LIKE</span> <span class="string">&#x27;a%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--  找出包含 or 字母</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> world</span><br><span class="line"><span class="keyword">WHERE</span> countryname <span class="keyword">LIKE</span> <span class="string">&#x27;%or%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--   _表示空一格字，找到第二個字為 r</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> world</span><br><span class="line"><span class="keyword">WHERE</span> countryname <span class="keyword">LIKE</span> <span class="string">&#x27;_r%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- y開頭並總字數至少為 3 個字符的所有客戶</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> world</span><br><span class="line"><span class="keyword">WHERE</span> countryname <span class="keyword">LIKE</span> <span class="string">&#x27;y__%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">---------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- a開頭並o結尾</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> world</span><br><span class="line"><span class="keyword">WHERE</span> countryname <span class="keyword">LIKE</span> <span class="string">&#x27;a%o&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">----------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 不為 a 開頭的</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> world</span><br><span class="line"><span class="keyword">WHERE</span> countryname <span class="keyword">NOT</span> <span class="keyword">LIKE</span> <span class="string">&#x27;a%&#x27;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          </div>
 
       
       
@@ -368,7 +386,10 @@
     <a href="/tadyweb/2021/10/12/mood/" rel="prev" title="Mood">
       <i class="fa fa-chevron-left"></i> Mood
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/tadyweb/2021/10/31/CNN-mnist/" rel="next" title="CNN_mnist">
+      CNN_mnist <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
         
       </footer>
@@ -440,7 +461,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84-SQL-%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">重要的 SQL 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-SELECT"><span class="nav-number">2.1.</span> <span class="nav-text">SQL SELECT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-WHERE"><span class="nav-number">2.2.</span> <span class="nav-text">SQL WHERE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-ORDER-BY-Keyword"><span class="nav-number">2.3.</span> <span class="nav-text">SQL ORDER BY Keyword</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-INSERT-INTO"><span class="nav-number">2.4.</span> <span class="nav-text">SQL INSERT INTO</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84-SQL-%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">重要的 SQL 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-SELECT"><span class="nav-number">2.1.</span> <span class="nav-text">SQL SELECT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-WHERE"><span class="nav-number">2.2.</span> <span class="nav-text">SQL WHERE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-ORDER-BY-Keyword"><span class="nav-number">2.3.</span> <span class="nav-text">SQL ORDER BY Keyword</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-INSERT-INTO"><span class="nav-number">2.4.</span> <span class="nav-text">SQL INSERT INTO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-NULL"><span class="nav-number">2.5.</span> <span class="nav-text">SQL NULL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-UPDATE-amp-DELETE"><span class="nav-number">2.6.</span> <span class="nav-text">SQL UPDATE &amp; DELETE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-MIN-amp-MAX-%EF%BC%86-COUNT-amp-AVG-amp-SUM"><span class="nav-number">2.7.</span> <span class="nav-text">SQL MIN &amp; MAX ＆ COUNT &amp; AVG &amp; SUM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-LIKE-Operator"><span class="nav-number">2.8.</span> <span class="nav-text">SQL LIKE Operator</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -456,20 +477,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/tadyweb/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/tadyweb/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tadyweb/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -519,12 +540,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">32k</span>
+    <span title="Symbols count total">40k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">29 mins.</span>
+    <span title="Reading time total">36 mins.</span>
 </div>
 
         
