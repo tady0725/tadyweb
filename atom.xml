@@ -6,7 +6,7 @@
   <link href="https://tady0725.github.io/tadyweb/atom.xml" rel="self"/>
   
   <link href="https://tady0725.github.io/tadyweb/"/>
-  <updated>2021-10-31T11:20:01.371Z</updated>
+  <updated>2021-10-31T14:01:44.621Z</updated>
   <id>https://tady0725.github.io/tadyweb/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cuda 與 cudnn 安裝</title>
+    <link href="https://tady0725.github.io/tadyweb/2021/10/31/cuda/"/>
+    <id>https://tady0725.github.io/tadyweb/2021/10/31/cuda/</id>
+    <published>2021-10-31T12:52:21.000Z</published>
+    <updated>2021-10-31T14:01:44.621Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h3><div class="note [class] [no-icon]">            <p>因為自己更新 Cdda 版本﹑結果重新載時出現問題，處理很久到快放棄，爬了不少文總算載回來 ^ ^，往後不敢再亂刪掉，基本上系統越乾淨越容易成功，假設出問題有許多文章提供解決。</p>          </div><span id="more"></span><hr><h3 id="tensorflow-版本對照"><a href="#tensorflow-版本對照" class="headerlink" title="tensorflow 版本對照"></a>tensorflow 版本對照</h3><div class="note [class] [no-icon]">            <blockquote><p>設備為 NVIDIA GeForce GTX 1650</p></blockquote><blockquote><p>查看<strong>tensorflow</strong>版本對照<strong>Cuda</strong>。</p></blockquote><blockquote><p>以作者使用<code>tensorflow-2.5.0</code>,須符合下列。</p></blockquote><hr><table><thead><tr><th>Python</th><th>编译器</th><th>构建工具</th><th>cuDNN</th><th>CUDA</th></tr></thead><tbody><tr><td>3.6-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td><td>8.1</td><td>11.2</td></tr></tbody></table><p><img src="https://upload.cc/i1/2021/10/31/4pd1eh.jpg" alt="i"></p>          </div><hr><h3 id="GPU-版本對照"><a href="#GPU-版本對照" class="headerlink" title="GPU 版本對照"></a>GPU 版本對照</h3><div class="note [class] [no-icon]">            <blockquote><p>查看<strong>顯示卡</strong>是否有支援 GPU 運算，及運算能力。<br><a href="https://developer.nvidia.com/zh-cn/cuda-gpus">官方網站連結</a></p></blockquote><hr><p><img src="https://upload.cc/i1/2021/10/31/coUh36.jpg" alt="i"></p>          </div><hr><h3 id="GPU-驅動"><a href="#GPU-驅動" class="headerlink" title="GPU 驅動"></a>GPU 驅動</h3><div class="note [class] [no-icon]">            <blockquote><p>更新<strong>顯示卡</strong>驅動。<br><a href="https://www.nvidia.com/download/index.aspx?lang=en-us">官方網站連結</a></p></blockquote><hr><p><img src="https://upload.cc/i1/2021/10/31/ZeEVgW.jpg" alt="i"></p>          </div><hr><h3 id="CUDA-Toolkit"><a href="#CUDA-Toolkit" class="headerlink" title="CUDA Toolkit"></a>CUDA Toolkit</h3><div class="note [class] [no-icon]">            <blockquote><p>選擇<strong>CUDA</strong>版本，作者版本需要<code>11.2</code>。<br><a href="https://developer.nvidia.com/cuda-toolkit-archive">官方網站連結</a></p></blockquote><hr><p><img src="https://upload.cc/i1/2021/10/31/J0fxSy.jpg" alt="i"></p>          </div><hr><h3 id="cuDNN-Archive"><a href="#cuDNN-Archive" class="headerlink" title="cuDNN Archive"></a>cuDNN Archive</h3><div class="note [class] [no-icon]">            <blockquote><p>選擇<strong>cuDNN</strong>版本，需要對照 CUDA<code>11.2</code>。<br>作者所需的對照<code>Download cuDNN v8.1.1 (Feburary 26th, 2021), for CUDA 11.0,11.1 and 11.2</code></p></blockquote><p><a href="https://developer.nvidia.com/rdp/cudnn-archive">官方網站連結</a></p><hr><p><img src="https://upload.cc/i1/2021/10/31/FU1LpD.jpg" alt="i"></p>          </div><hr><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><div class="note [class] [no-icon]">            <blockquote><p>第一個檔案<strong>cuDNN</strong>解壓縮後，有三個檔案分別為<code>bin,include,lib</code>。<br>為更新驅動檔案<br><strong>CUDA</strong>執行檔</p></blockquote><hr><p><img src="https://upload.cc/i1/2021/10/31/gNSJbr.jpg" alt="i"></p>          </div><hr><h3 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h3><div class="note [class] [no-icon]">            <blockquote><p>假設前面很順利安裝的話。</p></blockquote><blockquote><p><strong>CUDA</strong>執行檔，安裝完後，以作者為例<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2</code>，把<strong>cuDNN</strong>複製進去三個檔案<code>bin,include,lib</code>。</p></blockquote><hr><blockquote><p>加入<strong>環境變數</strong>，<font color=#FF0000>改為你的版本號</font>。<br>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2<br>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\lib\x64</p></blockquote><hr><p><img src="https://upload.cc/i1/2021/10/31/yfmkhs.jpg" alt="i"></p>          </div><hr><h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><div class="note [class] [no-icon]">            <blockquote><p>打開<code>CMD</code>，先查看安裝完成<code>nvcc -V</code>。</p></blockquote><blockquote><p><code>nvidia-smi -l</code>，定時更新顯示機器上 gpu 的情況。</p></blockquote><hr><blockquote><p><font color=#FF0000>可以看到 CUDA 版本，驅動版本，GPU 狀態</font>。</p></blockquote><hr><p><img src="https://upload.cc/i1/2021/10/31/fMzBHk.jpg" alt="i"></p><blockquote><p>歡迎提出問題!盡可能協助，會以小弟的經驗。</p></blockquote>          </div><hr><h3 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h3><div class="note [class] [no-icon]">            <p><a href="https://medium.com/ching-i/win10-%E5%AE%89%E8%A3%9D-cuda-cudnn-%E6%95%99%E5%AD%B8-c617b3b76deb">謦伊的閱讀筆記</a></p>          </div><hr><div class="note [class] [no-icon]">            <p>如果您喜歡我的文章，請幫我按五下 ，感謝大家。</p><div>  <iframe    scrolling="no"    frameborder="0"    style="width:100%; max-width:485px; height:240px; margin:auto; overflow:hidden; display:block;"    src='https://button.like.co/in/embed/tady0725/button?referrer="https://liker.land/tady0725/civic"'  ></iframe>  <div></div></div>          </div>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;介紹&quot;&gt;&lt;a href=&quot;#介紹&quot; class=&quot;headerlink&quot; title=&quot;介紹&quot;&gt;&lt;/a&gt;介紹&lt;/h3&gt;&lt;div class=&quot;note [class] [no-icon]&quot;&gt;
+            &lt;p&gt;因為自己更新 Cdda 版本﹑結果重新載時出現問題，處理很久到快放棄，爬了不少文總算載回來 ^ ^，往後不敢再亂刪掉，基本上系統越乾淨越容易成功，假設出問題有許多文章提供解決。&lt;/p&gt;
+          &lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Deep learning" scheme="https://tady0725.github.io/tadyweb/categories/Deep-learning/"/>
+    
+    
+    <category term="Tensorflow" scheme="https://tady0725.github.io/tadyweb/tags/Tensorflow/"/>
+    
+    <category term="cuda" scheme="https://tady0725.github.io/tadyweb/tags/cuda/"/>
+    
+    <category term="cudnn" scheme="https://tady0725.github.io/tadyweb/tags/cudnn/"/>
+    
+  </entry>
   
   <entry>
     <title>CNN_mnist</title>
