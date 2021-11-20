@@ -34,8 +34,9 @@
 <meta property="og:image" content="https://upload.cc/i1/2021/10/31/kpGByi.png">
 <meta property="og:image" content="https://upload.cc/i1/2021/10/31/GAUfv6.png">
 <meta property="og:image" content="https://upload.cc/i1/2021/10/31/twrRIA.png">
+<meta property="og:image" content="https://upload.cc/i1/2021/11/18/4qftbH.png">
 <meta property="article:published_time" content="2021-10-31T07:57:27.000Z">
-<meta property="article:modified_time" content="2021-11-02T12:51:23.405Z">
+<meta property="article:modified_time" content="2021-11-18T13:35:27.839Z">
 <meta property="article:author" content="Tady lin">
 <meta property="article:tag" content="Tensorflow">
 <meta name="twitter:card" content="summary">
@@ -237,7 +238,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-02 20:51:23" itemprop="dateModified" datetime="2021-11-02T20:51:23+08:00">2021-11-02</time>
+                <time title="Modified: 2021-11-18 21:35:27" itemprop="dateModified" datetime="2021-11-18T21:35:27+08:00">2021-11-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,7 +281,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>5.9k</span>
+              <span>6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -352,9 +353,20 @@
 <div class="note [class] [no-icon]">
             <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> load_model</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">model = load_model(<span class="string">&#x27;you path&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;輸入數字：&#x27;</span>)</span><br><span class="line"></span><br><span class="line">a=<span class="built_in">str</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="comment"># ex test img path</span></span><br><span class="line">im1 =<span class="string">&#x27;D:\\mnist\\&#x27;</span>+a+<span class="string">&#x27;.png&#x27;</span></span><br><span class="line"><span class="comment">#讀檔</span></span><br><span class="line">img = cv2.imread(im1)</span><br><span class="line"><span class="comment">#彩色轉灰階</span></span><br><span class="line">img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line"><span class="comment"># 照片大小符合模型訓練照片大小</span></span><br><span class="line">crop_size = (<span class="number">28</span>, <span class="number">28</span>)</span><br><span class="line"><span class="comment"># cv2.INTER_CUBIC 4x4像素邻域的双三次插值</span></span><br><span class="line">img = cv2.resize(img, crop_size, interpolation = cv2.INTER_CUBIC)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 顯示圖片</span></span><br><span class="line">cv2.imshow(<span class="string">&#x27;My Image&#x27;</span>, img)</span><br><span class="line"><span class="comment"># 按下任意鍵則關閉所有視窗</span></span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br><span class="line"></span><br><span class="line"><span class="comment"># reshape 大小須轉為四維符合CNN 模型</span></span><br><span class="line">img_2D = img.reshape((<span class="number">1</span>,<span class="number">28</span>,<span class="number">28</span>,<span class="number">1</span>)).astype(<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line"><span class="comment"># 正規化 1或0</span></span><br><span class="line">img_norm=img_2D/<span class="number">255</span></span><br><span class="line">img = img_norm</span><br><span class="line"></span><br><span class="line">predict =model.predict(img)</span><br><span class="line">predict=np.argmax(predict,axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&#x27;識別爲：&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(predict)</span><br></pre></td></tr></table></figure>
           </div>
-<p>下方為小畫家寫字辨識，實測結果百分之四十正確。<br><img src="https://upload.cc/i1/2021/10/31/twrRIA.png" alt="predict"></p>
+<p>下方為小畫家寫字辨識，實測結果百分之四十正確，白底黑字。<br><img src="https://upload.cc/i1/2021/10/31/twrRIA.png" alt="predict"></p>
+<div class="note [class] [no-icon]">
+            <p>最好使用的是黑底白字，識別效果會好一點。因爲 <strong>MNIST 數據集中的字體也是黑底白字</strong>。雖然也能識別，但是最好還是用<strong>黑底白字</strong>。<br>下方為小畫家寫字辨識，實測結果百分之六十正確，黑底白字。</p>
+          </div>
+
+<p><img src="https://upload.cc/i1/2021/11/18/4qftbH.png" alt="predict"></p>
 <blockquote>
 <p><strong>本文中有錯解說，歡迎指教！</strong></p>
+</blockquote>
+<blockquote>
+<p>可至此連結 <a href="https://tady0725.github.io/index.html">點選</a></p>
+</blockquote>
+<blockquote>
+<p><font color=#FF0000>圖片建議放黑底白字</font>進行辨識</p>
 </blockquote>
 <hr>
 <h3 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h3><div class="note [class] [no-icon]">
