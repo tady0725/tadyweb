@@ -1198,7 +1198,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff83be;
+  background: #383495;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2718,7 +2718,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 body {
-  background: url("https://img.news.ebc.net.tw/images/2018/01/05/15151212335063kTd74ALBmW.jpg");
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzGpuLL-dTkp8JOpLv6ZXVX66n2jcctL_uK8_o3WRDt7awzMFkNeWWt44_SCziWX2c3aY&usqp=CAU");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

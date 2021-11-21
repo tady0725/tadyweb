@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tady0725.github.io/tadyweb/2021/11/20/git-control/</loc>
+    
+    <lastmod>2021-11-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tady0725.github.io/tadyweb/2021/10/31/CNN-mnist/</loc>
     
     <lastmod>2021-11-18</lastmod>
@@ -10,6 +17,13 @@
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/2021/09/30/oop/</loc>
+    
+    <lastmod>2021-11-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tady0725.github.io/tadyweb/about/index.html</loc>
     
     <lastmod>2021-11-14</lastmod>
     
@@ -93,13 +107,6 @@
   </url>
   
   <url>
-    <loc>https://tady0725.github.io/tadyweb/about/index.html</loc>
-    
-    <lastmod>2021-09-13</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://tady0725.github.io/tadyweb/tags/index.html</loc>
     
     <lastmod>2021-09-09</lastmod>
@@ -116,113 +123,113 @@
 
   <url>
     <loc>https://tady0725.github.io/tadyweb</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://tady0725.github.io/tadyweb/tags/%E6%A8%99%E7%B1%A4/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <loc>https://tady0725.github.io/tadyweb/tags/Database/</loc>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tady0725.github.io/tadyweb/tags/Tensorflow/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <loc>https://tady0725.github.io/tadyweb/tags/%E6%A8%99%E7%B1%A4/</loc>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/Selenium/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/Coding/</loc>
-    <lastmod>2021-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tady0725.github.io/tadyweb/tags/Database/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/cuda/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/cudnn/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tady0725.github.io/tadyweb/tags/Tensorflow/</loc>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/%E9%9A%A8%E6%89%8B%E8%A8%98/</loc>
-    <lastmod>2021-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tady0725.github.io/tadyweb/tags/OS/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/Note/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/oop/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tady0725.github.io/tadyweb/tags/BeautifulSoup/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <loc>https://tady0725.github.io/tadyweb/tags/OS/</loc>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/Blog/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/Markdown/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tady0725.github.io/tadyweb/tags/BeautifulSoup/</loc>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/tags/%E5%BE%8C%E7%AB%AF/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -230,43 +237,50 @@
 
   
   <url>
+    <loc>https://tady0725.github.io/tadyweb/categories/SQL/</loc>
+    <lastmod>2021-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://tady0725.github.io/tadyweb/categories/Markdown/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/categories/Python/</loc>
-    <lastmod>2021-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tady0725.github.io/tadyweb/categories/SQL/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/categories/Deep-learning/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/categories/Hexo/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tady0725.github.io/tadyweb/categories/Php/</loc>
-    <lastmod>2021-11-20</lastmod>
+    <lastmod>2021-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tady0725.github.io/tadyweb/categories/Git/</loc>
+    <lastmod>2021-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
