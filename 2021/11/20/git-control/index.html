@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://upload.cc/i1/2021/11/21/Ao6Bcg.jpg">
 <meta property="og:image" content="https://upload.cc/i1/2021/11/21/48I6xj.jpg">
 <meta property="article:published_time" content="2021-11-20T10:30:51.000Z">
-<meta property="article:modified_time" content="2021-11-21T04:58:19.479Z">
+<meta property="article:modified_time" content="2021-11-22T16:35:04.073Z">
 <meta property="article:author" content="Tady">
 <meta property="article:tag" content="web(HTML,CSS,JavaScripts) ,ML ,Ai,前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,HTML,CSS,SCSS">
 <meta name="twitter:card" content="summary">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-21 12:58:19" itemprop="dateModified" datetime="2021-11-21T12:58:19+08:00">2021-11-21</time>
+                <time title="Modified: 2021-11-23 00:35:04" itemprop="dateModified" datetime="2021-11-23T00:35:04+08:00">2021-11-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,14 +271,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -315,7 +315,27 @@
 
 <hr>
 <h3 id="Git-其他指令"><a href="#Git-其他指令" class="headerlink" title="Git 其他指令"></a>Git 其他指令</h3><div class="note [class] [no-icon]">
-            <blockquote><p><code>git checkout</code>更改<strong>branch</strong>，<strong>commit</strong>。<br><code>git log</code>查看狀態<strong>commit</strong>，訊息包含作者名稱時間。<br><code>git log --oneline</code>簡短查看狀態<strong>commit</strong>，訊息包含作者名稱時間。<br><code>git diff</code>版本控制專案找出差異。<br><code>git merge</code>合併版本。</p></blockquote>
+            <blockquote><p><code>git checkout</code>更改<strong>branch</strong>，<strong>commit</strong>。<br><code>git log</code>查看狀態<strong>commit</strong>，訊息包含作者名稱時間。<br><code>git log --oneline</code>簡短查看狀態<strong>commit</strong>，訊息包含作者名稱時間。<br><code>git diff</code>版本控制專案找出差異。<br><code>git merge</code>合併版本。<br><code>git pull</code>拉下<strong>Repository</strong>最新進度。<br><code>git reset -- file_name</code> 把 add 修改，也就是 staged 狀態改變。<br><code> git reset --soft HEAD~1</code> # 數字表示移動到 HEAD 後面第幾個</p></blockquote>
+          </div>
+
+<hr>
+<h3 id="git-Merge-使用"><a href="#git-Merge-使用" class="headerlink" title="git Merge 使用"></a>git Merge 使用</h3><div class="note [class] [no-icon]">
+            <p>當一個專案，A,B,C 三位同步進行開發，<strong>Repository</strong>中<strong>master</strong>中內容僅有基底(例如首頁)，不過<br>專案同步在進行中，A 負責一個功能，BC 同上，這樣就會有三種功能，不過此時 A,B,C 都僅是發展在自己線路上，最後要合在<strong>branch</strong> <strong>master</strong>也就是主線上，A,B,C 都<strong>master</strong>的分支，當各自完成最後再結合到<strong>主線</strong>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git merge branch_name</span><br><span class="line">/*查看git log有新增commit出來*/</span><br><span class="line">git log</span><br><span class="line">/*此時合併的branch commit的資料會出現 master上*/</span><br><span class="line"></span><br><span class="line">git push origin master</span><br><span class="line">/*再次push 更新上去 Repository*/</span><br></pre></td></tr></table></figure>
+          </div>
+
+<hr>
+<h3 id="git-conflicts-衝突"><a href="#git-conflicts-衝突" class="headerlink" title="git conflicts(衝突)"></a>git conflicts(衝突)</h3><div class="note [class] [no-icon]">
+            <p>當一個專案，A,B 兩位進行開發，當 A 去修改首頁檔(index.html)，但 B 不知道也去修改首頁檔，<br>A 先修改完，進行<strong>commit</strong>上去，此時沒問題，B 在本地端進行也並不知道 A 已經進行修改(所以 B 用<code>git log</code>查看並不會發現因為未更新)，B 修改後也進行<strong>commit</strong>，問題就來了產生<font color=#FF0000>conflicts</font>，A 抓下來時假設<strong>commit</strong> 穩定版，A 修改完最新<strong>commit</strong> 277 行 bug 修正，B 抓下來時看到<strong>commit</strong> 穩定版，B 修改完最新<strong>commit</strong> 300 行 bug 修正，目前<strong>commit</strong>應該為(新到舊)300 行 bug 修正 =&gt; 277 行 bug 修正 =&gt; 穩定版 ，在 B 未更新所以看<strong>commit</strong>是舊的這造成<strong>commit</strong>錯亂就是<font color=#FF0000>conflicts</font>，此時需手動修整，確認更新檔案內容。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*操作者為B*/</span><br><span class="line">/*B commit 訊息產生錯誤發生衝突*/</span><br><span class="line">git pull</span><br><span class="line">/*更新抓下Repository 最新資訊 */</span><br><span class="line">/* 可使用vscode 比較容易修改*/</span><br><span class="line">git log</span><br><span class="line">/*修改完確認*/</span><br><span class="line">git add .</span><br><span class="line">git commit-m &quot;以解決conflicts&quot;</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">git push origin master</span><br><span class="line">/*再次push 更新上去 Repository*/</span><br></pre></td></tr></table></figure>
+          </div>
+
+<hr>
+<h3 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h3><div class="note [class] [no-icon]">
+            <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B-SZqdlU59g">走歪的工程師 James</a><br><a target="_blank" rel="noopener" href="https://backlog.com/git-tutorial/tw/intro/intro1_1.html">貝格樂 - 所有團隊成員的專案管理工具</a></p>
+          </div>
+
+<hr>
+<div class="note [class] [no-icon]">
+            <p>如果您喜歡我的文章，請幫我按五下 ，感謝大家。</p><div>  <iframe    scrolling="no"    frameborder="0"    style="width:100%; max-width:485px; height:240px; margin:auto; overflow:hidden; display:block;"    src='https://button.like.co/in/embed/tady0725/button?referrer="https://liker.land/tady0725/civic"'  ></iframe>  <div></div></div>
           </div>
 
       
@@ -434,7 +454,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.</span> <span class="nav-text">Git 介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E5%AE%89%E8%A3%9D"><span class="nav-number">3.</span> <span class="nav-text">Git 安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">Git 操作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-%E6%AD%A5%E9%A9%9F"><span class="nav-number">4.1.</span> <span class="nav-text">Git 步驟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E5%85%B6%E4%BB%96%E6%8C%87%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">Git 其他指令</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.</span> <span class="nav-text">Git 介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E5%AE%89%E8%A3%9D"><span class="nav-number">3.</span> <span class="nav-text">Git 安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">Git 操作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-%E6%AD%A5%E9%A9%9F"><span class="nav-number">4.1.</span> <span class="nav-text">Git 步驟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E5%85%B6%E4%BB%96%E6%8C%87%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">Git 其他指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-Merge-%E4%BD%BF%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">git Merge 使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-conflicts-%E8%A1%9D%E7%AA%81"><span class="nav-number">7.</span> <span class="nav-text">git conflicts(衝突)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E7%B6%B2%E7%AB%99"><span class="nav-number">8.</span> <span class="nav-text">參考網站</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -516,12 +536,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">42k</span>
+    <span title="Symbols count total">43k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">38 mins.</span>
+    <span title="Reading time total">39 mins.</span>
 </div>
 
         
