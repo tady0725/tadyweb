@@ -6,7 +6,7 @@
   <link href="https://tady0725.github.io/tadyweb/atom.xml" rel="self"/>
   
   <link href="https://tady0725.github.io/tadyweb/"/>
-  <updated>2021-11-22T16:35:04.073Z</updated>
+  <updated>2022-01-21T09:38:03.814Z</updated>
   <id>https://tady0725.github.io/tadyweb/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Http and Https ?</title>
+    <link href="https://tady0725.github.io/tadyweb/2022/01/21/http/"/>
+    <id>https://tady0725.github.io/tadyweb/2022/01/21/http/</id>
+    <published>2022-01-21T07:18:30.000Z</published>
+    <updated>2022-01-21T09:38:03.814Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h3><div class="note [class] [no-icon]">            <p>初探 HTTP 和 HTTPS 是什麼，自己複習筆記。</p>          </div><span id="more"></span><hr><h3 id="HTTP-介紹"><a href="#HTTP-介紹" class="headerlink" title="HTTP 介紹"></a>HTTP 介紹</h3><div class="note [class] [no-icon]">            <p>簡單來說是電腦間進行溝通的方式之一，<code>客戶端</code>（使用者）和<code>伺服器端</code>（網站）之間請求和應答的標準，通常使用 <strong>TCP</strong> 協定。</p><p><strong>HTTP</strong> 全名是 超文本傳輸協定（<font color=#FF0000><u>HyperText Transfer Protocol</u></font>），內容只規範了客戶端請求與伺服器回應的標準，藉由 <strong>TCP</strong> 作為資料的傳輸方式。</p><blockquote><p>傳遞中資訊皆已<code>明文</code>方式進行，而<font color=#FF0000><strong>惡意</strong></font>窺探傳輸的內容，產生資料安全性問題。</p></blockquote>          </div><hr><h3 id="HTTP-request-Method"><a href="#HTTP-request-Method" class="headerlink" title="HTTP request Method"></a>HTTP request Method</h3><div class="note [class] [no-icon]">            <ul><li>GET<ul><li>使用 GET 方法應該只用在讀取資料。</li></ul></li><li>POST<ul><li>請求伺服器進行處理（例如提交表單或者上傳檔案）。資料被包含在請求本文中。</li></ul></li><li>PUT<ul><li>指定資源位置上傳其最新內容，覆蓋資料 (不可局部更新)。</li></ul></li><li>DELETE<ul><li>伺服器刪除 Request-URI 所標識的資源。</li></ul></li><li>PATCH<ul><li>局部修改應用到資源，更新資料 (可局部更新)。</li></ul></li></ul>          </div><hr><h3 id="HTTP-Status-Code"><a href="#HTTP-Status-Code" class="headerlink" title="HTTP Status Code"></a>HTTP Status Code</h3><div class="note [class] [no-icon]">            <ul><li>1xx 訊息<blockquote><p>代表請求已被<strong>接受</strong>，<strong>需要繼續處理</strong>。這類回應是臨時回應，只包含狀態行和某些可選的回應頭資訊，並以空行結束。</p></blockquote></li><li>2xx 成功<blockquote><p>這一類型的狀態碼，代表請求已成功被伺服器接收、理解、並接受。</p></blockquote></li><li>3xx 重新導向<blockquote><p>這些狀態碼用來重新導向，後續的請求位址（重新導向目標）。</p></blockquote></li><li>4xx 客戶端錯誤<blockquote><p>客戶端看起來可能發生了錯誤，妨礙了伺服器的處理，請求含有詞法錯誤或者無法被執行。</p></blockquote></li><li>5xx 伺服器錯誤<blockquote><p>代表了伺服器在處理請求的過程中有錯誤或者異常狀態發生，也有可能是伺服器意識到以當前的軟硬體資源無法完成對請求的處理。</p></blockquote></li></ul><p>查看詳細資訊點選下方</p><blockquote><p><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><img src="https://upload.cc/i1/2022/01/21/bN70Wl.png" alt="alt text" title="title"></a></p></blockquote>          </div><hr><h3 id="HTTPS-介紹"><a href="#HTTPS-介紹" class="headerlink" title="HTTPS 介紹"></a>HTTPS 介紹</h3><div class="note [class] [no-icon]">            <p><strong>HTTPS</strong> 與 <strong><em>HTTP</em></strong> 最顯而易見差別就是多了<code>S</code>，<font color=#FF0000>S</font> 意為 <code>Secure</code>，安全的意思也就在傳遞資訊上進行加密的傳送。</p><p><strong>HTTPS</strong> 經由 <strong>HTTP</strong> 進行通訊，但利用 <code>SSL/TLS</code> 來<strong>加密封包</strong>。HTTPS 開發的主要目的，是提供對網站伺服器的身分認證，保護交換資料的<strong>隱私與完整性</strong>。</p>          </div><hr><h3 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h3><div class="note [class] [no-icon]">            <p><a href="https://juejin.cn/post/6844903731704791054">tcpt</a><br><a href="https://tw.alphacamp.co/blog/http-https-difference">Gary-alphacamp</a><br><a href="https://www.youtube.com/watch?v=-tRp1IOlKkI">GrandmaCan -我阿嬤都會</a></p>          </div><hr><div class="note [class] [no-icon]">            <p>如果您喜歡我的文章，請幫我按五下 ，感謝大家。</p><div>  <iframe    scrolling="no"    frameborder="0"    style="width:100%; max-width:485px; height:240px; margin:auto; overflow:hidden; display:block;"    src='https://button.like.co/in/embed/tady0725/button?referrer="https://liker.land/tady0725/civic"'  ></iframe>  <div></div></div>          </div>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;介紹&quot;&gt;&lt;a href=&quot;#介紹&quot; class=&quot;headerlink&quot; title=&quot;介紹&quot;&gt;&lt;/a&gt;介紹&lt;/h3&gt;&lt;div class=&quot;note [class] [no-icon]&quot;&gt;
+            &lt;p&gt;初探 HTTP 和 HTTPS 是什麼，自己複習筆記。&lt;/p&gt;
+          &lt;/div&gt;</summary>
+    
+    
+    
+    
+    <category term="Network" scheme="https://tady0725.github.io/tadyweb/tags/Network/"/>
+    
+  </entry>
   
   <entry>
     <title>git-control</title>
@@ -56,11 +77,11 @@
     <category term="Deep learning" scheme="https://tady0725.github.io/tadyweb/categories/Deep-learning/"/>
     
     
+    <category term="Tensorflow" scheme="https://tady0725.github.io/tadyweb/tags/Tensorflow/"/>
+    
     <category term="cuda" scheme="https://tady0725.github.io/tadyweb/tags/cuda/"/>
     
     <category term="cudnn" scheme="https://tady0725.github.io/tadyweb/tags/cudnn/"/>
-    
-    <category term="Tensorflow" scheme="https://tady0725.github.io/tadyweb/tags/Tensorflow/"/>
     
   </entry>
   
