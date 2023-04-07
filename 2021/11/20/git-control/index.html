@@ -27,19 +27,19 @@
 <meta property="og:site_name" content="My blogs">
 <meta property="og:description" content="介紹             Git 語法筆記，幫自己複習。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://upload.cc/i1/2021/11/20/uU71t4.jpg">
-<meta property="og:image" content="https://upload.cc/i1/2021/11/20/UQOxk7.jpg">
-<meta property="og:image" content="https://upload.cc/i1/2021/11/20/R56OF2.jpg">
-<meta property="og:image" content="https://upload.cc/i1/2021/11/21/SxakW3.jpg">
-<meta property="og:image" content="https://upload.cc/i1/2021/11/21/2RX4lQ.jpg">
-<meta property="og:image" content="https://upload.cc/i1/2021/11/21/Ao6Bcg.jpg">
-<meta property="og:image" content="https://upload.cc/i1/2021/11/21/48I6xj.jpg">
+<meta property="og:image" content="https://imgur.com/xBnb2vB.jpg">
+<meta property="og:image" content="https://imgur.com/w7zkt2V.jpg">
+<meta property="og:image" content="https://imgur.com/ptsB46a.jpg">
+<meta property="og:image" content="https://imgur.com/j182849.jpg">
+<meta property="og:image" content="https://imgur.com/g43xKzp.jpg">
+<meta property="og:image" content="https://imgur.com/vX4FI0c.jpg">
+<meta property="og:image" content="https://imgur.com/dR52VMB.jpg">
 <meta property="article:published_time" content="2021-11-20T10:30:51.000Z">
-<meta property="article:modified_time" content="2021-11-22T16:35:04.073Z">
+<meta property="article:modified_time" content="2023-04-07T06:17:54.610Z">
 <meta property="article:author" content="Tady">
 <meta property="article:tag" content="web(HTML,CSS,JavaScripts) ,ML ,Ai,前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,HTML,CSS,SCSS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://upload.cc/i1/2021/11/20/uU71t4.jpg">
+<meta name="twitter:image" content="https://imgur.com/xBnb2vB.jpg">
 
 <link rel="canonical" href="https://tady0725.github.io/tadyweb/2021/11/20/git-control/">
 
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 00:35:04" itemprop="dateModified" datetime="2021-11-23T00:35:04+08:00">2021-11-23</time>
+                <time title="Modified: 2023-04-07 14:17:54" itemprop="dateModified" datetime="2023-04-07T14:17:54+08:00">2023-04-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,7 +302,7 @@
 
 <hr>
 <h3 id="Git-安裝"><a href="#Git-安裝" class="headerlink" title="Git 安裝"></a>Git 安裝</h3><div class="note [class] [no-icon]">
-            <p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git 官方</a></p><blockquote><p>選擇自己相對作業系統下載。</p></blockquote><p>安裝完成之後再 <strong>git</strong> 目錄下找到<strong>git bash</strong>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;John Doe&quot;</span><br><span class="line">$ git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure><p><code>ssh</code>方式連接。</p><blockquote><p><code>ssh-keygen</code>生成一個金鑰，產生<code>.ssh</code>檔包含下圖兩個檔案。</p></blockquote><p><img src="https://upload.cc/i1/2021/11/20/uU71t4.jpg" alt="ph"></p><p>選取<code>.pub</code> 檔案此檔為<strong>公鑰</strong>，打開<code>Github</code>進入 <code>personal settings</code> =&gt; <code>SSH and GPG keys</code>。</p><p><img src="https://upload.cc/i1/2021/11/20/UQOxk7.jpg" alt="ph"></p><blockquote><p><code>New SSH keys</code> 新增 把<code>.pub</code>的金鑰複製上去。</p></blockquote>
+            <p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git 官方</a></p><blockquote><p>選擇自己相對作業系統下載。</p></blockquote><p>安裝完成之後再 <strong>git</strong> 目錄下找到<strong>git bash</strong>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;John Doe&quot;</span><br><span class="line">git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure><p><code>ssh</code>方式連接。</p><blockquote><p><code>ssh-keygen</code>生成一個金鑰，產生<code>.ssh</code>檔包含下圖兩個檔案。</p></blockquote><p><img src="https://imgur.com/xBnb2vB.jpg" alt="ph"></p><p>選取<code>.pub</code> 檔案此檔為<strong>公鑰</strong>，打開<code>Github</code>進入 <code>personal settings</code> =&gt; <code>SSH and GPG keys</code>。</p><p><img src="https://imgur.com/w7zkt2V.jpg" alt="ph"></p><blockquote><p><code>New SSH keys</code> 新增 把<code>.pub</code>的金鑰複製上去。</p></blockquote>
           </div>
 
 <hr>
@@ -310,12 +310,12 @@
 <p>作者以<code>windows</code>系統。</p>
 </blockquote>
 <h4 id="Git-步驟"><a href="#Git-步驟" class="headerlink" title="Git 步驟"></a>Git 步驟</h4><div class="note [class] [no-icon]">
-            <ul><li><ol><li>打開<code>CMD</code>，快速鍵 <code>Win+R</code> 。</li></ol></li><li><ol start="2"><li>建立資料夾 <code>mkdir foldername</code>。</li></ol></li><li><ol start="3"><li>切換到建立資料夾底下 <code>cd foldername</code>。</li></ol></li></ul><p><img src="https://upload.cc/i1/2021/11/20/R56OF2.jpg" alt="ph"></p><ul><li><ol start="4"><li>初始<code>git init</code>。</li></ol></li><li><ol start="5"><li>建立文字檔<code>cd .&gt;a.txt</code>。</li></ol></li><li><ol start="6"><li><code>git status</code>查看<code>git</code>狀態，如下圖。<br><img src="https://upload.cc/i1/2021/11/21/SxakW3.jpg" alt="ph"></li></ol></li><li><ol start="7"><li><code>git add a.txt</code>，<code>git status</code>查看，如下圖。<br><img src="https://upload.cc/i1/2021/11/21/2RX4lQ.jpg" alt="ph"><br><font color=#FF0000>提示:</font> <code>git add .</code> 把檔案一次添加進去。</li></ol></li><li><ol start="8"><li><code>echo 789&gt;&gt;a.txt</code>新增內容在文字檔需再次<code>git add a.txt</code></li></ol></li><li><ol start="9"><li><code>git commit -m &quot;first commit&quot; </code> push 上去的文字標記，<code>-m</code>不啟用文字編輯器。</li></ol></li><li><ol start="10"><li>到<code>github</code>建立<strong>Repository</strong>，如下圖。<br><img src="https://upload.cc/i1/2021/11/21/Ao6Bcg.jpg" alt="ph"></li></ol></li><li><ol start="11"><li><code>git branch -M master</code>建立 <code>branch</code> 名稱 <code>master</code>。</li></ol></li><li><ol start="12"><li><code>git remote add origin https://github.com/tady0725/gitdemo.git</code>，連接到<strong>Repository</strong> ，<strong>origin</strong>為倉儲節點名稱。</li></ol></li><li><ol start="13"><li><code>git push -u origin master</code>把檔案推至倉儲，<code>-u 設定 upstream</code> ，在 <strong>Git</strong> 裡面每一個分支可以設定一個「上游」，完成如下圖。<br><img src="https://upload.cc/i1/2021/11/21/48I6xj.jpg" alt="ph"></li></ol></li></ul>
+            <ul><li><ol><li>打開<code>CMD</code>，快速鍵 <code>Win+R</code> 。</li></ol></li><li><ol start="2"><li>建立資料夾 <code>mkdir foldername</code>。</li></ol></li><li><ol start="3"><li>切換到建立資料夾底下 <code>cd foldername</code>。</li></ol></li></ul><p><img src="https://imgur.com/ptsB46a.jpg" alt="ph"></p><ul><li><ol start="4"><li>初始<code>git init</code>。</li></ol></li><li><ol start="5"><li>建立文字檔<code>cd .&gt;a.txt</code>。</li></ol></li><li><ol start="6"><li><code>git status</code>查看<code>git</code>狀態，如下圖。<br><img src="https://imgur.com/j182849.jpg" alt="ph"></li></ol></li><li><ol start="7"><li><code>git add a.txt</code>，<code>git status</code>查看，如下圖。<br><img src="https://imgur.com/g43xKzp.jpg" alt="ph"><br><font color=#FF0000>提示:</font> <code>git add .</code> 把檔案一次添加進去。</li></ol></li><li><ol start="8"><li><code>echo 789&gt;&gt;a.txt</code>新增內容在文字檔需再次<code>git add a.txt</code></li></ol></li><li><ol start="9"><li><code>git commit -m &quot;first commit&quot;</code> push 上去的文字標記，<code>-m</code>不啟用文字編輯器。</li></ol></li><li><ol start="10"><li>到<code>github</code>建立<strong>Repository</strong>，如下圖。<br><img src="https://imgur.com/vX4FI0c.jpg" alt="ph"></li></ol></li><li><ol start="11"><li><code>git branch -M master</code>建立 <code>branch</code> 名稱 <code>master</code>。</li></ol></li><li><ol start="12"><li><code>git remote add origin https://github.com/tady0725/gitdemo.git</code>，連接到<strong>Repository</strong> ，<strong>origin</strong>為倉儲節點名稱。</li></ol></li><li><ol start="13"><li><code>git push -u origin master</code>把檔案推至倉儲，<code>-u 設定 upstream</code> ，在 <strong>Git</strong> 裡面每一個分支可以設定一個「上游」，完成如下圖。<br><img src="https://imgur.com/dR52VMB.jpg" alt="ph"></li></ol></li></ul>
           </div>
 
 <hr>
 <h3 id="Git-其他指令"><a href="#Git-其他指令" class="headerlink" title="Git 其他指令"></a>Git 其他指令</h3><div class="note [class] [no-icon]">
-            <blockquote><p><code>git checkout</code>更改<strong>branch</strong>，<strong>commit</strong>。<br><code>git log</code>查看狀態<strong>commit</strong>，訊息包含作者名稱時間。<br><code>git log --oneline</code>簡短查看狀態<strong>commit</strong>，訊息包含作者名稱時間。<br><code>git diff</code>版本控制專案找出差異。<br><code>git merge</code>合併版本。<br><code>git pull</code>拉下<strong>Repository</strong>最新進度。<br><code>git reset -- file_name</code> 把 add 修改，也就是 staged 狀態改變。<br><code> git reset --soft HEAD~1</code> # 數字表示移動到 HEAD 後面第幾個</p></blockquote>
+            <blockquote><p><code>git checkout</code>更改<strong>branch</strong>，<strong>commit</strong>。<br><code>git log</code>查看狀態<strong>commit</strong>，訊息包含作者名稱時間。<br><code>git log --oneline</code>簡短查看狀態<strong>commit</strong>，訊息包含作者名稱時間。<br><code>git diff</code>版本控制專案找出差異。<br><code>git merge</code>合併版本。<br><code>git pull</code>拉下<strong>Repository</strong>最新進度。<br><code>git reset -- file_name</code> 把 add 修改，也就是 staged 狀態改變。<br><code>git reset --soft HEAD~1</code> # 數字表示移動到 HEAD 後面第幾個</p></blockquote>
           </div>
 
 <hr>
@@ -530,7 +530,7 @@
 <div class="copyright">
   
   &copy; 2021-> – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
